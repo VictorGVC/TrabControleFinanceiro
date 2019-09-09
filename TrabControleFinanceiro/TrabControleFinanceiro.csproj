@@ -61,11 +61,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DATAControleDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DATAControleDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,17 +81,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="DATAControleDataSet.xsc">
-      <DependentUpon>DATAControleDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="DATAControleDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DATAControleDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DATAControleDataSet.xss">
-      <DependentUpon>DATAControleDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -16,5 +16,40 @@ namespace TrabControleFinanceiro
         {
             InitializeComponent();
         }
+
+        private void BtnIncluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnAlterar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnExcluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnGravar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnLocalizar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnFechar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
