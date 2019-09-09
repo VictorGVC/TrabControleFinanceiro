@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TrabControleFinanceiro
 {
-    public partial class Form1 : Form
+    public partial class FPrincipal : Form
     {
-        public Form1()
+        public FPrincipal()
         {
             InitializeComponent();
         }
