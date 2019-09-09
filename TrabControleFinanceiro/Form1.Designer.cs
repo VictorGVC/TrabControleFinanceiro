@@ -37,14 +37,14 @@
             this.lCodLan = new System.Windows.Forms.Label();
             this.lCompensado = new System.Windows.Forms.Label();
             this.lValor = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.ttbCodDesp = new System.Windows.Forms.TextBox();
+            this.ttbNome = new System.Windows.Forms.TextBox();
+            this.ttbCodLan = new System.Windows.Forms.TextBox();
             this.rbtnDebito = new System.Windows.Forms.RadioButton();
             this.rbtnCrédito = new System.Windows.Forms.RadioButton();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.ttbCompensa = new System.Windows.Forms.TextBox();
+            this.ttbValor = new System.Windows.Forms.TextBox();
+            this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.lData = new System.Windows.Forms.Label();
             this.btnFechar = new System.Windows.Forms.Button();
             this.btnLocalizar = new System.Windows.Forms.Button();
@@ -59,14 +59,14 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.dateTimePicker1);
+            this.panel1.Controls.Add(this.dtpData);
             this.panel1.Controls.Add(this.rbtnCrédito);
             this.panel1.Controls.Add(this.rbtnDebito);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox5);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.ttbCompensa);
+            this.panel1.Controls.Add(this.ttbNome);
+            this.panel1.Controls.Add(this.ttbCodLan);
+            this.panel1.Controls.Add(this.ttbValor);
+            this.panel1.Controls.Add(this.ttbCodDesp);
             this.panel1.Controls.Add(this.lCodLan);
             this.panel1.Controls.Add(this.lData);
             this.panel1.Controls.Add(this.lValor);
@@ -149,28 +149,28 @@
             this.lValor.TabIndex = 0;
             this.lValor.Text = "Valor";
             // 
-            // textBox1
+            // ttbCodDesp
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(15, 26);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(47, 20);
-            this.textBox1.TabIndex = 1;
+            this.ttbCodDesp.Enabled = false;
+            this.ttbCodDesp.Location = new System.Drawing.Point(15, 26);
+            this.ttbCodDesp.Name = "ttbCodDesp";
+            this.ttbCodDesp.Size = new System.Drawing.Size(47, 20);
+            this.ttbCodDesp.TabIndex = 1;
             // 
-            // textBox2
+            // ttbNome
             // 
-            this.textBox2.Location = new System.Drawing.Point(159, 26);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(258, 20);
-            this.textBox2.TabIndex = 1;
+            this.ttbNome.Location = new System.Drawing.Point(159, 26);
+            this.ttbNome.Name = "ttbNome";
+            this.ttbNome.Size = new System.Drawing.Size(258, 20);
+            this.ttbNome.TabIndex = 1;
             // 
-            // textBox3
+            // ttbCodLan
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(15, 72);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(47, 20);
-            this.textBox3.TabIndex = 1;
+            this.ttbCodLan.Enabled = false;
+            this.ttbCodLan.Location = new System.Drawing.Point(15, 72);
+            this.ttbCodLan.Name = "ttbCodLan";
+            this.ttbCodLan.Size = new System.Drawing.Size(47, 20);
+            this.ttbCodLan.TabIndex = 1;
             // 
             // rbtnDebito
             // 
@@ -194,27 +194,27 @@
             this.rbtnCrédito.Text = "Crédito";
             this.rbtnCrédito.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // ttbCompensa
             // 
-            this.textBox4.Location = new System.Drawing.Point(252, 72);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(165, 20);
-            this.textBox4.TabIndex = 1;
+            this.ttbCompensa.Location = new System.Drawing.Point(252, 72);
+            this.ttbCompensa.Name = "ttbCompensa";
+            this.ttbCompensa.Size = new System.Drawing.Size(165, 20);
+            this.ttbCompensa.TabIndex = 1;
             // 
-            // textBox5
+            // ttbValor
             // 
-            this.textBox5.Location = new System.Drawing.Point(423, 72);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(47, 20);
-            this.textBox5.TabIndex = 1;
+            this.ttbValor.Location = new System.Drawing.Point(423, 72);
+            this.ttbValor.Name = "ttbValor";
+            this.ttbValor.Size = new System.Drawing.Size(47, 20);
+            this.ttbValor.TabIndex = 1;
             // 
-            // dateTimePicker1
+            // dtpData
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(476, 72);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(97, 20);
-            this.dateTimePicker1.TabIndex = 3;
+            this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpData.Location = new System.Drawing.Point(476, 72);
+            this.dtpData.Name = "dtpData";
+            this.dtpData.Size = new System.Drawing.Size(97, 20);
+            this.dtpData.TabIndex = 3;
             // 
             // lData
             // 
@@ -234,6 +234,7 @@
             this.btnFechar.TabIndex = 13;
             this.btnFechar.Text = "Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.BtnFechar_Click);
             // 
             // btnLocalizar
             // 
@@ -244,6 +245,7 @@
             this.btnLocalizar.TabIndex = 12;
             this.btnLocalizar.Text = "Localizar";
             this.btnLocalizar.UseVisualStyleBackColor = true;
+            this.btnLocalizar.Click += new System.EventHandler(this.BtnLocalizar_Click);
             // 
             // btnCancelar
             // 
@@ -255,6 +257,7 @@
             this.btnCancelar.TabIndex = 11;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // btnGravar
             // 
@@ -265,6 +268,7 @@
             this.btnGravar.TabIndex = 10;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.BtnGravar_Click);
             // 
             // btnExcluir
             // 
@@ -275,6 +279,7 @@
             this.btnExcluir.TabIndex = 9;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.BtnExcluir_Click);
             // 
             // btnAlterar
             // 
@@ -285,6 +290,7 @@
             this.btnAlterar.TabIndex = 8;
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.BtnAlterar_Click);
             // 
             // btnIncluir
             // 
@@ -295,6 +301,7 @@
             this.btnIncluir.TabIndex = 7;
             this.btnIncluir.Text = "Incluir";
             this.btnIncluir.UseVisualStyleBackColor = true;
+            this.btnIncluir.Click += new System.EventHandler(this.BtnIncluir_Click);
             // 
             // FPrincipal
             // 
@@ -316,14 +323,14 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpData;
         private System.Windows.Forms.RadioButton rbtnCrédito;
         private System.Windows.Forms.RadioButton rbtnDebito;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ttbCompensa;
+        private System.Windows.Forms.TextBox ttbNome;
+        private System.Windows.Forms.TextBox ttbCodLan;
+        private System.Windows.Forms.TextBox ttbValor;
+        private System.Windows.Forms.TextBox ttbCodDesp;
         private System.Windows.Forms.Label lCodLan;
         private System.Windows.Forms.Label lData;
         private System.Windows.Forms.Label lValor;
