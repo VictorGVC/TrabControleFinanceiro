@@ -60,7 +60,8 @@ namespace TrabControleFinanceiro
         }
         private void BtnConsultar_Click(object sender, EventArgs e)
         {
-
+            FConsulta telac = new FConsulta("Consultar");
+            telac.ShowDialog();
         }
 
         private void BtnGravar_Click(object sender, EventArgs e)
