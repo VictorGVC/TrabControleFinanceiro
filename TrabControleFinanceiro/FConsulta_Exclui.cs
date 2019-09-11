@@ -13,6 +13,7 @@ namespace TrabControleFinanceiro
     public partial class FConsulta_Exclui : Form
     {
         DataTable dtControle = new DataTable();
+
         private string action;
 
         public FConsulta_Exclui(string action)
