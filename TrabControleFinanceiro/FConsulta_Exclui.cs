@@ -10,15 +10,17 @@ using System.Windows.Forms;
 
 namespace TrabControleFinanceiro
 {
-    public partial class FConsulta : Form
+    public partial class FConsulta_Exclui : Form
     {
+        DataTable dtControle = new DataTable();
         private string action;
 
-        public FConsulta(string action)
+        public FConsulta_Exclui(string action)
         {
             InitializeComponent();
-            /*btAction.Text = action;
-            this.action = action;*/
+            btnAction.Text = action;
+            this.action = action;
+            this.Text = action;
         }
 
         private void consultarTabela()
@@ -35,5 +37,13 @@ namespace TrabControleFinanceiro
 		{
 			Close();
 		}
-	}
+
+        private void BtnAction_Click(object sender, EventArgs e)
+        {
+            if (action == "Consultar")
+                consultarTabela();
+            else
+                excluirElemento();
+        }
+    }
 }

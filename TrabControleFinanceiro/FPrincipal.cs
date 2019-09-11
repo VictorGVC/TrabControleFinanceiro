@@ -56,12 +56,13 @@ namespace TrabControleFinanceiro
 
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
-
+            FConsulta_Exclui telac = new FConsulta_Exclui("Excluir");
+            telac.ShowDialog();
         }
 
 		private void BtnConsultar_Click(object sender, EventArgs e)
 		{
-			FConsulta telac = new FConsulta("Consultar");
+			FConsulta_Exclui telac = new FConsulta_Exclui("Consultar");
 			telac.ShowDialog();
 		}
 

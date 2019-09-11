@@ -61,11 +61,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FConsulta.cs">
+    <Compile Include="FConsulta_Exclui.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FConsulta.Designer.cs">
-      <DependentUpon>FConsulta.cs</DependentUpon>
+    <Compile Include="FConsulta_Exclui.Designer.cs">
+      <DependentUpon>FConsulta_Exclui.cs</DependentUpon>
     </Compile>
     <Compile Include="FPrincipal.cs">
       <SubType>Form</SubType>
@@ -75,8 +75,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FConsulta.resx">
-      <DependentUpon>FConsulta.cs</DependentUpon>
+    <EmbeddedResource Include="FConsulta_Exclui.resx">
+      <DependentUpon>FConsulta_Exclui.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FPrincipal.resx">
       <DependentUpon>FPrincipal.cs</DependentUpon>
