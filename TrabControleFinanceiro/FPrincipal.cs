@@ -58,26 +58,27 @@ namespace TrabControleFinanceiro
         {
 
         }
-        private void BtnConsultar_Click(object sender, EventArgs e)
-        {
-            FConsulta telac = new FConsulta("Consultar");
-            telac.ShowDialog();
-        }
 
-        private void BtnGravar_Click(object sender, EventArgs e)
-        {
+		private void BtnConsultar_Click(object sender, EventArgs e)
+		{
+			FConsulta telac = new FConsulta("Consultar");
+			telac.ShowDialog();
+		}
 
-        }
+		private void BtnGravar_Click(object sender, EventArgs e)
+		{
 
-        private void BtnCancelar_Click(object sender, EventArgs e)
-        {
-            inicializar();
-        }
+		}
+
+		private void BtnCancelar_Click(object sender, EventArgs e)
+		{
+			inicializar();
+		}
 
         private void BtnFechar_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-    }
+	}
 }

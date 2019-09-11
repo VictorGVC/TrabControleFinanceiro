@@ -17,13 +17,8 @@ namespace TrabControleFinanceiro
         public FConsulta(string action)
         {
             InitializeComponent();
-            btAction.Text = action;
-            this.action = action;
-        }
-
-        private void BtVoltar_Click(object sender, EventArgs e)
-        {
-            Close();
+            /*btAction.Text = action;
+            this.action = action;*/
         }
 
         private void consultarTabela()
@@ -36,12 +31,9 @@ namespace TrabControleFinanceiro
             
         }
 
-        private void BtAction_Click(object sender, EventArgs e)
-        {
-            if (action == "Consultar")
-                consultarTabela();
-            else
-                excluirElemento();
-        }
-    }
+		private void BtnVoltar_Click(object sender, EventArgs e)
+		{
+			Close();
+		}
+	}
 }
