@@ -87,6 +87,7 @@
             // rbtnCrédito
             // 
             this.rbtnCrédito.AutoSize = true;
+            this.rbtnCrédito.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbtnCrédito.Location = new System.Drawing.Point(159, 92);
             this.rbtnCrédito.Name = "rbtnCrédito";
             this.rbtnCrédito.Size = new System.Drawing.Size(58, 17);
@@ -98,6 +99,7 @@
             // rbtnDebito
             // 
             this.rbtnDebito.AutoSize = true;
+            this.rbtnDebito.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rbtnDebito.Location = new System.Drawing.Point(159, 72);
             this.rbtnDebito.Name = "rbtnDebito";
             this.rbtnDebito.Size = new System.Drawing.Size(56, 17);
@@ -220,6 +222,7 @@
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
@@ -235,6 +238,7 @@
             // btnGravar
             // 
             this.btnGravar.BackColor = System.Drawing.Color.Transparent;
+            this.btnGravar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGravar.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnGravar.Image = ((System.Drawing.Image)(resources.GetObject("btnGravar.Image")));
             this.btnGravar.Location = new System.Drawing.Point(0, 0);

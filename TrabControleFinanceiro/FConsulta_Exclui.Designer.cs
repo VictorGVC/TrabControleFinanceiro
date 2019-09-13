@@ -59,6 +59,7 @@
             // 
             // btnAction
             // 
+            this.btnAction.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAction.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnAction.Location = new System.Drawing.Point(575, 0);
             this.btnAction.Name = "btnAction";
@@ -70,6 +71,7 @@
             // 
             // btnVoltar
             // 
+            this.btnVoltar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVoltar.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
             this.btnVoltar.Location = new System.Drawing.Point(0, 0);

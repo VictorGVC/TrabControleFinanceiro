@@ -39,6 +39,7 @@
             // btnConsultar
             // 
             this.btnConsultar.BackColor = System.Drawing.Color.Transparent;
+            this.btnConsultar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConsultar.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultar.Image")));
             this.btnConsultar.Location = new System.Drawing.Point(192, 312);
             this.btnConsultar.Name = "btnConsultar";
@@ -52,6 +53,7 @@
             // btnExcluir
             // 
             this.btnExcluir.BackColor = System.Drawing.Color.Transparent;
+            this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
             this.btnExcluir.Location = new System.Drawing.Point(102, 312);
             this.btnExcluir.Name = "btnExcluir";
@@ -65,6 +67,7 @@
             // btnCadastrar
             // 
             this.btnCadastrar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCadastrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCadastrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrar.Image")));
             this.btnCadastrar.Location = new System.Drawing.Point(12, 312);
             this.btnCadastrar.Name = "btnCadastrar";
@@ -88,6 +91,7 @@
             // btnFechar
             // 
             this.btnFechar.BackColor = System.Drawing.Color.Transparent;
+            this.btnFechar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFechar.Image = ((System.Drawing.Image)(resources.GetObject("btnFechar.Image")));
             this.btnFechar.Location = new System.Drawing.Point(282, 312);
             this.btnFechar.Name = "btnFechar";
@@ -110,7 +114,10 @@
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnExcluir);
             this.Controls.Add(this.btnCadastrar);
+            this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FPrincipal";
             this.Text = "Controle Financeiro";
             this.ResumeLayout(false);
