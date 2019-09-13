@@ -67,6 +67,12 @@
     <Compile Include="FConsulta_Exclui.Designer.cs">
       <DependentUpon>FConsulta_Exclui.cs</DependentUpon>
     </Compile>
+    <Compile Include="FCadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCadastro.Designer.cs">
+      <DependentUpon>FCadastro.cs</DependentUpon>
+    </Compile>
     <Compile Include="FPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FConsulta_Exclui.resx">
       <DependentUpon>FConsulta_Exclui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FCadastro.resx">
+      <DependentUpon>FCadastro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FPrincipal.resx">
       <DependentUpon>FPrincipal.cs</DependentUpon>

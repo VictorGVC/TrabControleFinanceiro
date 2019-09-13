@@ -48,7 +48,7 @@
             // 
             // pnlBtn
             // 
-            this.pnlBtn.BackColor = System.Drawing.Color.Linen;
+            this.pnlBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(175)))), ((int)(((byte)(169)))));
             this.pnlBtn.Controls.Add(this.btnAction);
             this.pnlBtn.Controls.Add(this.btnVoltar);
             this.pnlBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -83,7 +83,7 @@
             // 
             // pnlCampos
             // 
-            this.pnlCampos.BackColor = System.Drawing.Color.Linen;
+            this.pnlCampos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(175)))), ((int)(((byte)(169)))));
             this.pnlCampos.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCampos.Location = new System.Drawing.Point(0, 0);
             this.pnlCampos.Name = "pnlCampos";
@@ -103,6 +103,7 @@
             // 
             this.dgvConsulta.AllowUserToAddRows = false;
             this.dgvConsulta.AllowUserToDeleteRows = false;
+            this.dgvConsulta.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConsulta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colcodigo,
