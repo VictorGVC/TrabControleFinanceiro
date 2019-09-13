@@ -127,6 +127,14 @@
         +1V0cdPLao0x1MvCpt9j6n9S6g3g2GPJMqkS2QAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="btnFiltrar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EwAACxMBAJqcGAAAAJFJREFUSEvtk7sJgDAUReMAjiC4g8NY6ArOYWOh4hwWLqj3KQ8kBvNHhBw4EAvv
+        IUVEwoYSznDxdIIFfNDCPZA1fJDBEap+sHGAtKXEN/I6zrhGjMYZ24jVOGMacRpndBGvcYYGNiiPr9B7
+        nKEHJAfoZsFIAS3/DzQwaoDoYNQAcY9ECRAc6c+vSFQwv46fIsQBAnCX4dJCPigAAAAASUVORK5CYII=
+</value>
+  </data>
   <metadata name="colcodigo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

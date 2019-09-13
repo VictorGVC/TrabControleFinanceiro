@@ -224,9 +224,9 @@
             this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnCancelar.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(552, 0);
+            this.btnCancelar.Location = new System.Drawing.Point(0, 0);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(82, 37);
             this.btnCancelar.TabIndex = 16;
@@ -239,9 +239,9 @@
             // 
             this.btnGravar.BackColor = System.Drawing.Color.Transparent;
             this.btnGravar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGravar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnGravar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnGravar.Image = ((System.Drawing.Image)(resources.GetObject("btnGravar.Image")));
-            this.btnGravar.Location = new System.Drawing.Point(0, 0);
+            this.btnGravar.Location = new System.Drawing.Point(559, 0);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(75, 37);
             this.btnGravar.TabIndex = 15;
