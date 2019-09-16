@@ -36,9 +36,9 @@
             this.lbPoint = new System.Windows.Forms.Label();
             this.ttbFiltro = new System.Windows.Forms.TextBox();
             this.btnFiltrar = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbOrdenar = new System.Windows.Forms.ComboBox();
             this.lbOrdenar = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbFiltrar = new System.Windows.Forms.ComboBox();
             this.lbFiltro = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvConsulta = new System.Windows.Forms.DataGridView();
@@ -97,9 +97,9 @@
             this.pnlCampos.Controls.Add(this.lbPoint);
             this.pnlCampos.Controls.Add(this.ttbFiltro);
             this.pnlCampos.Controls.Add(this.btnFiltrar);
-            this.pnlCampos.Controls.Add(this.comboBox2);
+            this.pnlCampos.Controls.Add(this.cbOrdenar);
             this.pnlCampos.Controls.Add(this.lbOrdenar);
-            this.pnlCampos.Controls.Add(this.comboBox1);
+            this.pnlCampos.Controls.Add(this.cbFiltrar);
             this.pnlCampos.Controls.Add(this.lbFiltro);
             this.pnlCampos.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCampos.Location = new System.Drawing.Point(0, 0);
@@ -134,20 +134,21 @@
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
             // 
-            // comboBox2
+            // cbOrdenar
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.cbOrdenar.FormattingEnabled = true;
+            this.cbOrdenar.Items.AddRange(new object[] {
             "Data",
             "Crédito/Débito",
             "Compensação",
             "Valor",
             "Tipo de Despesa"});
-            this.comboBox2.Location = new System.Drawing.Point(12, 30);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(106, 21);
-            this.comboBox2.TabIndex = 1;
+            this.cbOrdenar.Location = new System.Drawing.Point(12, 30);
+            this.cbOrdenar.Name = "cbOrdenar";
+            this.cbOrdenar.Size = new System.Drawing.Size(106, 21);
+            this.cbOrdenar.TabIndex = 1;
             // 
             // lbOrdenar
             // 
@@ -158,18 +159,18 @@
             this.lbOrdenar.TabIndex = 0;
             this.lbOrdenar.Text = "Ordenar por:";
             // 
-            // comboBox1
+            // cbFiltrar
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbFiltrar.FormattingEnabled = true;
+            this.cbFiltrar.Items.AddRange(new object[] {
             "Período",
             "Débito",
             "Crédito",
             "Tipo de Despesa"});
-            this.comboBox1.Location = new System.Drawing.Point(138, 30);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(106, 21);
-            this.comboBox1.TabIndex = 1;
+            this.cbFiltrar.Location = new System.Drawing.Point(138, 30);
+            this.cbFiltrar.Name = "cbFiltrar";
+            this.cbFiltrar.Size = new System.Drawing.Size(106, 21);
+            this.cbFiltrar.TabIndex = 1;
             // 
             // lbFiltro
             // 
@@ -279,9 +280,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colCompensado;
         private System.Windows.Forms.DataGridViewTextBoxColumn colValor;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTipoDespesa;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbFiltrar;
         private System.Windows.Forms.Label lbFiltro;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbOrdenar;
         private System.Windows.Forms.Label lbOrdenar;
         private System.Windows.Forms.Label lbPoint;
         private System.Windows.Forms.TextBox ttbFiltro;
