@@ -14,7 +14,7 @@ namespace TrabControleFinanceiro
     public partial class FConsulta_Exclui : Form
     {
         private string action;
-        string strConexao = @"";
+        string strCon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vicga\Desktop\Banco controle\databaseFinanceiro.mdf;Integrated Security=True;Connect Timeout=30";
         DataTable dtControle = new DataTable();
 
         public FConsulta_Exclui(string action)
@@ -55,7 +55,7 @@ namespace TrabControleFinanceiro
         {
             string filtro = cbFiltrar.Text, ordenar = cbOrdenar.Text, txt = ttbFiltro.Text;
             string sql;
-            SqlConnection con = new SqlConnection(strConexao);
+            SqlConnection con = new SqlConnection(strCon);
 
             dtControle.Rows.Clear();
             if (filtro != "")
