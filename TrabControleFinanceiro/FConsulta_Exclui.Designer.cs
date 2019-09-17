@@ -42,12 +42,6 @@
             this.lbFiltro = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvConsulta = new System.Windows.Forms.DataGridView();
-            this.colcodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colCompensado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTipoDespesa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlBtn.SuspendLayout();
             this.pnlCampos.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -196,55 +190,12 @@
             this.dgvConsulta.AllowUserToDeleteRows = false;
             this.dgvConsulta.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvConsulta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colcodigo,
-            this.colData,
-            this.colTipo,
-            this.colCompensado,
-            this.colValor,
-            this.colTipoDespesa});
             this.dgvConsulta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvConsulta.Location = new System.Drawing.Point(0, 0);
             this.dgvConsulta.Name = "dgvConsulta";
             this.dgvConsulta.ReadOnly = true;
             this.dgvConsulta.Size = new System.Drawing.Size(643, 316);
             this.dgvConsulta.TabIndex = 0;
-            // 
-            // colcodigo
-            // 
-            this.colcodigo.HeaderText = "Codigo";
-            this.colcodigo.Name = "colcodigo";
-            this.colcodigo.ReadOnly = true;
-            // 
-            // colData
-            // 
-            this.colData.HeaderText = "Data";
-            this.colData.Name = "colData";
-            this.colData.ReadOnly = true;
-            // 
-            // colTipo
-            // 
-            this.colTipo.HeaderText = "Tipo de Pagamento";
-            this.colTipo.Name = "colTipo";
-            this.colTipo.ReadOnly = true;
-            // 
-            // colCompensado
-            // 
-            this.colCompensado.HeaderText = "Compensado";
-            this.colCompensado.Name = "colCompensado";
-            this.colCompensado.ReadOnly = true;
-            // 
-            // colValor
-            // 
-            this.colValor.HeaderText = "Valor";
-            this.colValor.Name = "colValor";
-            this.colValor.ReadOnly = true;
-            // 
-            // colTipoDespesa
-            // 
-            this.colTipoDespesa.HeaderText = "Tipo de Despesa";
-            this.colTipoDespesa.Name = "colTipoDespesa";
-            this.colTipoDespesa.ReadOnly = true;
             // 
             // FConsulta_Exclui
             // 
@@ -274,12 +225,6 @@
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.DataGridView dgvConsulta;
         private System.Windows.Forms.Button btnAction;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colcodigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colData;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colCompensado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colValor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTipoDespesa;
         private System.Windows.Forms.ComboBox cbFiltrar;
         private System.Windows.Forms.Label lbFiltro;
         private System.Windows.Forms.ComboBox cbOrdenar;

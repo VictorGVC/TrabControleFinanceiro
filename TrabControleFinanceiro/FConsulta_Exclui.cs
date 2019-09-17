@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TrabControleFinanceiro
@@ -20,32 +14,45 @@ namespace TrabControleFinanceiro
         public FConsulta_Exclui(string action)
         {
             InitializeComponent();
+            if (action == "Consultar")
+            {
+                btnAction.Visible = false;
+            }
             btnAction.Text = action;
             this.action = action;
             this.Text = action;
+            Inicio();
         }
 
-        private void consultarTabela()
+        private void Inicio()
         {
-            
+            SqlConnection con = new SqlConnection(strCon);
+            string SQL;
+            SQL = @"SELECT lancamentos.lan_codigo as codigo,lancamentos.lan_data as data,lancamentos.lan_tipo as 'tipo de pagamento',lancamentos.lan_compensado as compensado,lan_valor as valor,tipo_despesa.tip_nome as 'tipo de despesa'
+                    FROM lancamentos,tipo_despesa
+                    WHERE tipo_despesa.tip_codigo = lancamentos.tip_codigo";
+            SqlCommand cmdexibe = new SqlCommand(SQL, con);
+            con.Open();
+            dtControle.Load(cmdexibe.ExecuteReader());
+            con.Close();
+            dgvConsulta.DataSource = dtControle;
         }
 
         private void excluirElemento()
         {
-            
+
         }
 
-		private void BtnVoltar_Click(object sender, EventArgs e)
-		{
-			Close();
-		}
+        private void BtnVoltar_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
 
         private void BtnAction_Click(object sender, EventArgs e)
         {
             if (action == "Consultar")
             {
                 btnAction.Visible = false;
-                consultarTabela();
             }
             else
                 excluirElemento();
