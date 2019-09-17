@@ -21,10 +21,10 @@ namespace TrabControleFinanceiro
             btnAction.Text = action;
             this.action = action;
             this.Text = action;
-            Inicio();
+            inicio();
         }
 
-        private void Inicio()
+        private void inicio()
         {
 			string SQL;
 			SqlConnection con = new SqlConnection(strCon);
@@ -46,15 +46,6 @@ namespace TrabControleFinanceiro
             Close();
         }
 
-        private void BtnAction_Click(object sender, EventArgs e)
-        {
-            if (action == "Consultar")
-            {
-                btnAction.Visible = false;
-            }
-            
-        }
-
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
             string filtro = cbFiltrar.Text, ordenar = cbOrdenar.Text, txt = ttbFiltro.Text;
@@ -64,44 +55,55 @@ namespace TrabControleFinanceiro
             dtControle.Rows.Clear();
             if (filtro != "")
             {
-                txt += "%";
-                if (filtro == "Período")
-                {
-                    sql = @"";
-                    SqlCommand cmdPesquisar = new SqlCommand(sql, con);
-                    cmdPesquisar.Parameters.AddWithValue("@", txt);
-                    con.Open();
-                    dtControle.Load(cmdPesquisar.ExecuteReader());
-                    con.Close();
-                }
-                else if (filtro == "Débito")
-                {
-                    sql = @"";
-                    SqlCommand cmdPesquisar = new SqlCommand(sql, con);
-                    cmdPesquisar.Parameters.AddWithValue("@", txt);
-                    con.Open();
-                    dtControle.Load(cmdPesquisar.ExecuteReader());
-                    con.Close();
-                }
-                else if (filtro == "Crédito")
-                {
-                    sql = @"";
-                    SqlCommand cmdPesquisar = new SqlCommand(sql, con);
-                    cmdPesquisar.Parameters.AddWithValue("@", txt);
-                    con.Open();
-                    dtControle.Load(cmdPesquisar.ExecuteReader());
-                    con.Close();
-                }
-                else if (filtro == "Tipo de Despesa")
-                {
-                    sql = @"";
-                    SqlCommand cmdPesquisar = new SqlCommand(sql, con);
-                    cmdPesquisar.Parameters.AddWithValue("@", txt);
-                    con.Open();
-                    dtControle.Load(cmdPesquisar.ExecuteReader());
-                    con.Close();
-                }
-                dgvConsulta.DataSource = dtControle;
+                if(txt != "")
+				{
+					txt += "%";
+					if (filtro == "Período")
+					{
+						sql = @"";
+						SqlCommand cmdPesquisar = new SqlCommand(sql, con);
+						cmdPesquisar.Parameters.AddWithValue("@", txt);
+						con.Open();
+						dtControle.Load(cmdPesquisar.ExecuteReader());
+						con.Close();
+					}
+					else if (filtro == "Débito")
+					{
+						sql = @"";
+						SqlCommand cmdPesquisar = new SqlCommand(sql, con);
+						cmdPesquisar.Parameters.AddWithValue("@", txt);
+						con.Open();
+						dtControle.Load(cmdPesquisar.ExecuteReader());
+						con.Close();
+					}
+					else if (filtro == "Crédito")
+					{
+						sql = @"";
+						SqlCommand cmdPesquisar = new SqlCommand(sql, con);
+						cmdPesquisar.Parameters.AddWithValue("@", txt);
+						con.Open();
+						dtControle.Load(cmdPesquisar.ExecuteReader());
+						con.Close();
+					}
+					else if (filtro == "Tipo de Despesa")
+					{
+						sql = @"";
+						SqlCommand cmdPesquisar = new SqlCommand(sql, con);
+						cmdPesquisar.Parameters.AddWithValue("@", txt);
+						con.Open();
+						dtControle.Load(cmdPesquisar.ExecuteReader());
+						con.Close();
+					}
+					dgvConsulta.DataSource = dtControle;
+					cbOrdenar.Text = "";
+					cbFiltrar.Text = "";
+					ttbFiltro.Clear();
+				}
+				else
+				{
+					MessageBox.Show("Digitar o filtro desejado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+					ttbFiltro.Focus();
+				}
             }
             if (ordenar != "")
             {
@@ -146,7 +148,10 @@ namespace TrabControleFinanceiro
                     con.Close();
                 }
                 dgvConsulta.DataSource = dtControle;
-            }
+				cbOrdenar.Text = "";
+				cbFiltrar.Text = "";
+				ttbFiltro.Clear();
+			}
         }
     }
 }
