@@ -26,21 +26,19 @@ namespace TrabControleFinanceiro
 
         private void Inicio()
         {
-            SqlConnection con = new SqlConnection(strCon);
-            string SQL;
+			string SQL;
+			SqlConnection con = new SqlConnection(strCon);
+            
             SQL = @"SELECT lancamentos.lan_codigo as codigo,lancamentos.lan_data as data,lancamentos.lan_tipo as 'tipo de pagamento',lancamentos.lan_compensado as compensado,lan_valor as valor,tipo_despesa.tip_nome as 'tipo de despesa'
                     FROM lancamentos,tipo_despesa
                     WHERE tipo_despesa.tip_codigo = lancamentos.tip_codigo";
-            SqlCommand cmdexibe = new SqlCommand(SQL, con);
-            con.Open();
+
+			SqlCommand cmdexibe = new SqlCommand(SQL, con);
+
+			con.Open();
             dtControle.Load(cmdexibe.ExecuteReader());
             con.Close();
             dgvConsulta.DataSource = dtControle;
-        }
-
-        private void excluirElemento()
-        {
-
         }
 
         private void BtnVoltar_Click(object sender, EventArgs e)
@@ -54,8 +52,7 @@ namespace TrabControleFinanceiro
             {
                 btnAction.Visible = false;
             }
-            else
-                excluirElemento();
+            
         }
 
         private void BtnFiltrar_Click(object sender, EventArgs e)
