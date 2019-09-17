@@ -95,9 +95,6 @@ namespace TrabControleFinanceiro
 						con.Close();
 					}
 					dgvConsulta.DataSource = dtControle;
-					cbOrdenar.Text = "";
-					cbFiltrar.Text = "";
-					ttbFiltro.Clear();
 				}
 				else
 				{
@@ -109,7 +106,7 @@ namespace TrabControleFinanceiro
             {
                 if (ordenar == "Data")
                 {
-                    sql = @"";
+                    sql = @"SELECT * FROM lancamentos ORDER BY data";
                     SqlCommand cmdPesquisar = new SqlCommand(sql, con);
                     con.Open();
                     dtControle.Load(cmdPesquisar.ExecuteReader());
@@ -117,7 +114,7 @@ namespace TrabControleFinanceiro
                 }
                 else if (ordenar == "Crédito/Débito")
                 {
-                    sql = @"";
+                    sql = @"SELECT * FROM lancamentos ORDER BY tipo";
                     SqlCommand cmdPesquisar = new SqlCommand(sql, con);
                     con.Open();
                     dtControle.Load(cmdPesquisar.ExecuteReader());
@@ -125,7 +122,7 @@ namespace TrabControleFinanceiro
                 }
                 else if (ordenar == "Compensação")
                 {
-                    sql = @"";
+                    sql = @"SELECT * FROM lancamentos ORDER BY compensado";
                     SqlCommand cmdPesquisar = new SqlCommand(sql, con);
                     con.Open();
                     dtControle.Load(cmdPesquisar.ExecuteReader());
@@ -133,7 +130,7 @@ namespace TrabControleFinanceiro
                 }
                 else if (ordenar == "Valor")
                 {
-                    sql = @"";
+                    sql = @"SELECT * FROM lancamentos ORDER BY valor";
                     SqlCommand cmdPesquisar = new SqlCommand(sql, con);
                     con.Open();
                     dtControle.Load(cmdPesquisar.ExecuteReader());
@@ -141,16 +138,13 @@ namespace TrabControleFinanceiro
                 }
                 else if (ordenar == "Tipo de Despesa")
                 {
-                    sql = @"";
+                    sql = @"SELECT * FROM tipo_despesa ORDER BY nomeD";
                     SqlCommand cmdPesquisar = new SqlCommand(sql, con);
                     con.Open();
                     dtControle.Load(cmdPesquisar.ExecuteReader());
                     con.Close();
                 }
                 dgvConsulta.DataSource = dtControle;
-				cbOrdenar.Text = "";
-				cbFiltrar.Text = "";
-				ttbFiltro.Clear();
 			}
         }
     }

@@ -24,101 +24,123 @@ namespace TrabControleFinanceiro
 
         private void inicializar()
         {
-            ttbCodDesp.Clear();
-            ttbNome.Clear();
-            ttbCodLan.Clear();
-			rbtnDebito.Checked = false;
+            dtpData.Value = DateTime.Now.Date;
+            rbtnDebito.Checked = false;
 			rbtnCrédito.Checked = false;
 			rbtnSim.Checked = false;
 			rbtnNao.Checked = false;
 			ttbValor.Clear();
-            dtpData.Value = DateTime.Now.Date;
         }
 
 		private void BtnGravar_Click(object sender, EventArgs e)
 		{
-            try
+            if(cbDespesa.Text != "")
             {
-				string SQL;
-				SqlConnection con = new SqlConnection(strCon);
-                
-                SQL = @"SELECT tip_codigo, tip_nome FROM tipo_despesa
-                        WHERE tip_nome = @nomeD";
-
-                SqlCommand cmdPesquisar = new SqlCommand(SQL, con);
-
-				cmdPesquisar.Parameters.AddWithValue("@nomeD", ttbNome.Text);
-                con.Open();
-                dtControle.Load(cmdPesquisar.ExecuteReader());
-                con.Close();
-                int codD = Convert.ToInt32(dtControle.Rows[0]["tip_codigo"].ToString());
-                dtControle.Clear();
-                SQL = @"INSERT INTO lancamentos(lan_data,tip_codigo,lan_tipo,lan_compensado,lan_valor)
-                        VALUES(@data,@cod,@tipo,@compensado,@valor)";
-
-				SqlCommand cmdGravar = new SqlCommand(SQL, con);
-
-				cmdGravar.Parameters.AddWithValue("@data",dtpData.Value);
-                cmdGravar.Parameters.AddWithValue("@cod",codD);
-				if (rbtnDebito.Checked)
-					cmdGravar.Parameters.AddWithValue("@tipo", 'D');
-				else if (rbtnCrédito.Checked)
-                    cmdGravar.Parameters.AddWithValue("@tipo",'C');
-				if (rbtnSim.Checked)
-					cmdGravar.Parameters.AddWithValue("@compensado", "Sim");
-				else if (rbtnNao.Checked)
-					cmdGravar.Parameters.AddWithValue("@compensado", "Não");
-				cmdGravar.Parameters.AddWithValue("@valor",Convert.ToDouble(ttbValor.Text));
-                con.Open();
-                cmdGravar.ExecuteNonQuery();
-                con.Close();
-            }
-            catch
-            {
-                if(MessageBox.Show("Tipo de despesa não cadastrado, deseja realmente cadastrar um novo?","Confirmação",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+                if(rbtnCrédito.Checked != false && rbtnDebito.Checked != false)
                 {
-					string SQL;
-					SqlConnection con = new SqlConnection(strCon);
-                    
-                    SQL = @"INSERT INTO tipo_despesa(tip_nome)
-                        VALUES(@nomeT)";
+                    if(rbtnSim.Checked != false && rbtnNao.Checked != false)
+                    {
+                        if(ttbValor.Text != "")
+                        {
+                            try
+                            {
+                                string SQL;
+                                SqlConnection con = new SqlConnection(strCon);
 
-					SqlCommand cmdGravar = new SqlCommand(SQL, con);
+                                SQL = @"SELECT tip_codigo, tip_nome FROM tipo_despesa
+                                        WHERE tip_nome = @nomeD";
 
-					cmdGravar.Parameters.AddWithValue("@nomeT", ttbNome.Text);
-                    con.Open();
-                    cmdGravar.ExecuteNonQuery();
-                    con.Close();
-                    SQL = @"SELECT tip_codigo, tip_nome FROM tipo_despesa
-                        WHERE tip_nome = @nomeD";
+                                SqlCommand cmdPesquisar = new SqlCommand(SQL, con);
 
-					SqlCommand cmdPesquisar = new SqlCommand(SQL, con);
+                                cmdPesquisar.Parameters.AddWithValue("@nomeD", cbDespesa.Text);
+                                con.Open();
+                                dtControle.Load(cmdPesquisar.ExecuteReader());
+                                con.Close();
+                                int codD = Convert.ToInt32(dtControle.Rows[0]["tip_codigo"].ToString());
+                                dtControle.Clear();
+                                SQL = @"INSERT INTO lancamentos(lan_data,tip_codigo,lan_tipo,lan_compensado,lan_valor)
+                                        VALUES(@data,@cod,@tipo,@compensado,@valor)";
 
-					cmdPesquisar.Parameters.AddWithValue("@nomeD", ttbNome.Text);
-                    con.Open();
-                    dtControle.Load(cmdPesquisar.ExecuteReader());
-                    con.Close();
-                    int codD = Convert.ToInt32(dtControle.Rows[0]["tip_codigo"].ToString());
-                    dtControle.Clear();
-                    SQL = @"INSERT INTO lancamentos(lan_data,tip_codigo,lan_tipo,lan_compensado,lan_valor)
-                        VALUES(@data,@cod,@tipo,@compensado,@valor)";
-                    cmdGravar = new SqlCommand(SQL, con);
-                    cmdGravar.Parameters.AddWithValue("@data", dtpData.Value);
-                    cmdGravar.Parameters.AddWithValue("@cod", codD);
-                    if (rbtnDebito.Checked)
-                        cmdGravar.Parameters.AddWithValue("@tipo", 'D');
-                    else if (rbtnCrédito.Checked)
-						cmdGravar.Parameters.AddWithValue("@tipo", 'C');
-					if (rbtnSim.Checked)
-						cmdGravar.Parameters.AddWithValue("@compensado", "Sim");
-					else if(rbtnNao.Checked)
-						cmdGravar.Parameters.AddWithValue("@compensado", "Não");
-					cmdGravar.Parameters.AddWithValue("@valor", Convert.ToDouble(ttbValor.Text));
-                    con.Open();
-                    cmdGravar.ExecuteNonQuery();
-                    con.Close();
+                                SqlCommand cmdGravar = new SqlCommand(SQL, con);
+
+                                cmdGravar.Parameters.AddWithValue("@data", dtpData.Value);
+                                cmdGravar.Parameters.AddWithValue("@cod", codD);
+                                if (rbtnDebito.Checked)
+                                    cmdGravar.Parameters.AddWithValue("@tipo", 'D');
+                                else if (rbtnCrédito.Checked)
+                                    cmdGravar.Parameters.AddWithValue("@tipo", 'C');
+                                if (rbtnSim.Checked)
+                                    cmdGravar.Parameters.AddWithValue("@compensado", "Sim");
+                                else if (rbtnNao.Checked)
+                                    cmdGravar.Parameters.AddWithValue("@compensado", "Não");
+                                cmdGravar.Parameters.AddWithValue("@valor", Convert.ToDouble(ttbValor.Text));
+                                con.Open();
+                                cmdGravar.ExecuteNonQuery();
+                                con.Close();
+                            }
+                            catch
+                            {
+                                if (MessageBox.Show("Tipo de despesa não cadastrado, deseja realmente cadastrar um novo?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                                {
+                                    string SQL;
+                                    SqlConnection con = new SqlConnection(strCon);
+
+                                    SQL = @"INSERT INTO tipo_despesa(tip_nome)
+                                            VALUES(@nomeT)";
+
+                                    SqlCommand cmdGravar = new SqlCommand(SQL, con);
+
+                                    cmdGravar.Parameters.AddWithValue("@nomeT", cbDespesa.Text);
+                                    con.Open();
+                                    cmdGravar.ExecuteNonQuery();
+                                    con.Close();
+                                    SQL = @"SELECT tip_codigo, tip_nome FROM tipo_despesa
+                                            WHERE tip_nome = @nomeD";
+
+                                    SqlCommand cmdPesquisar = new SqlCommand(SQL, con);
+
+                                    cmdPesquisar.Parameters.AddWithValue("@nomeD", cbDespesa.Text);
+                                    con.Open();
+                                    dtControle.Load(cmdPesquisar.ExecuteReader());
+                                    con.Close();
+                                    int codD = Convert.ToInt32(dtControle.Rows[0]["tip_codigo"].ToString());
+                                    dtControle.Clear();
+                                    SQL = @"INSERT INTO lancamentos(lan_data,tip_codigo,lan_tipo,lan_compensado,lan_valor)
+                                            VALUES(@data,@cod,@tipo,@compensado,@valor)";
+                                    cmdGravar = new SqlCommand(SQL, con);
+                                    cmdGravar.Parameters.AddWithValue("@data", dtpData.Value);
+                                    cmdGravar.Parameters.AddWithValue("@cod", codD);
+                                    if (rbtnDebito.Checked)
+                                        cmdGravar.Parameters.AddWithValue("@tipo", 'D');
+                                    else if (rbtnCrédito.Checked)
+                                        cmdGravar.Parameters.AddWithValue("@tipo", 'C');
+                                    if (rbtnSim.Checked)
+                                        cmdGravar.Parameters.AddWithValue("@compensado", "Sim");
+                                    else if (rbtnNao.Checked)
+                                        cmdGravar.Parameters.AddWithValue("@compensado", "Não");
+                                    cmdGravar.Parameters.AddWithValue("@valor", Convert.ToDouble(ttbValor.Text));
+                                    con.Open();
+                                    cmdGravar.ExecuteNonQuery();
+                                    con.Close();
+                                }
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Digitar valor desejado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            ttbValor.Focus();
+                        }
+                    }
+                    else
+                        MessageBox.Show("Selecionar Compensação!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                
+                else
+                    MessageBox.Show("Selecionar Tipo do lançamento!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                MessageBox.Show("Digitar despesa desejada!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbDespesa.Focus();
             }
 		}
 
