@@ -21,6 +21,13 @@ namespace TrabControleFinanceiro
             btnAction.Text = action;
             this.action = action;
             this.Text = action;
+            dtpDe.Visible = false;
+            dtpAte.Visible = false;
+            lblDe.Visible = false;
+            lblAte.Visible = false;
+            cbDespesa.Visible = false;
+            rbDebito.Visible = false;
+            rbCredito.Visible = false;
             inicio();
         }
 
@@ -48,7 +55,7 @@ namespace TrabControleFinanceiro
 
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
-            string filtro = cbFiltrar.Text, ordenar = cbOrdenar.Text, txt = ttbFiltro.Text;
+            string filtro = cbFiltrar.Text, ordenar = cbOrdenar.Text, txt = "a"; //txt = ttbFiltro.Text;
             string sql;
             SqlConnection con = new SqlConnection(strCon);
 
@@ -99,7 +106,7 @@ namespace TrabControleFinanceiro
 				else
 				{
 					MessageBox.Show("Digitar o filtro desejado!", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-					ttbFiltro.Focus();
+					//ttbFiltro.Focus();
 				}
             }
             if (ordenar != "")
@@ -146,6 +153,114 @@ namespace TrabControleFinanceiro
                 }
                 dgvConsulta.DataSource = dtControle;
 			}
+        }
+
+        private void PnlCampos_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void CbFiltrar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbFiltrar.SelectedIndex == 0)
+            {
+                dtpDe.Visible = true;
+                dtpAte.Visible = true;
+                lblDe.Visible = true;
+                lblAte.Visible = true;
+                cbDespesa.Visible = false;
+                rbDebito.Visible = false;
+                rbCredito.Visible = false;
+            }
+            else if (cbFiltrar.SelectedIndex == 1)
+            {
+                dtpDe.Visible = false;
+                dtpAte.Visible = false;
+                lblDe.Visible = false;
+                lblAte.Visible = false;
+                cbDespesa.Visible = false;
+                rbDebito.Visible = true;
+                rbCredito.Visible = true;
+            }
+            else if (cbFiltrar.SelectedIndex == 2)
+            {
+                dtpDe.Visible = false;
+                dtpAte.Visible = false;
+                lblDe.Visible = false;
+                lblAte.Visible = false;
+                cbDespesa.Visible = true;
+                rbDebito.Visible = false;
+                rbCredito.Visible = false;
+            }
+        }
+
+        private void DtpDe_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DtpAte_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RbCredito_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RbDebito_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CbDespesa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void atualizaTabela()
+        {
+            string SQL;
+            SqlConnection con = new SqlConnection(strCon);
+            string ordenar;
+            switch(cbOrdenar.SelectedIndex)
+            {
+                case 0:
+                    //ordenar = 
+                break;
+                case 1:
+                    //ordenar =
+                break;
+                case 2:
+                    //ordenar =
+                break;
+                case 3:
+                    //ordenar =
+                break;
+            }
+
+            if (cbFiltrar.SelectedItem.ToString() == "")
+            {
+                SQL = @"SELECT * FROM lancamentos ORDER BY data";
+                SqlCommand cmdPesquisar = new SqlCommand(SQL, con);
+                con.Open();
+                dtControle.Load(cmdPesquisar.ExecuteReader());
+                con.Close();
+            }
+        }
+
+        private void BtnAction_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(strCon);
+            string SQL = @"DELETE FROM lancamentos
+                            WHERE lan_codigo = @cod";
+            SqlCommand cmdDeletar = new SqlCommand(SQL, con);
+            cmdDeletar.Parameters.AddWithValue("@cod",Convert.ToInt32(dgvConsulta.CurrentRow.Cells[0].Value));
+            dgvConsulta.Rows.Remove(dgvConsulta.CurrentRow);
+            con.Open();
+            cmdDeletar.ExecuteNonQuery();
+            con.Close();
         }
     }
 }

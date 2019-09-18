@@ -33,9 +33,13 @@
             this.btnAction = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.pnlCampos = new System.Windows.Forms.Panel();
-            this.lbPoint = new System.Windows.Forms.Label();
-            this.ttbFiltro = new System.Windows.Forms.TextBox();
-            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.cbDespesa = new System.Windows.Forms.ComboBox();
+            this.rbDebito = new System.Windows.Forms.RadioButton();
+            this.rbCredito = new System.Windows.Forms.RadioButton();
+            this.lblAte = new System.Windows.Forms.Label();
+            this.lblDe = new System.Windows.Forms.Label();
+            this.dtpAte = new System.Windows.Forms.DateTimePicker();
+            this.dtpDe = new System.Windows.Forms.DateTimePicker();
             this.cbOrdenar = new System.Windows.Forms.ComboBox();
             this.lbOrdenar = new System.Windows.Forms.Label();
             this.cbFiltrar = new System.Windows.Forms.ComboBox();
@@ -70,6 +74,7 @@
             this.btnAction.TabIndex = 1;
             this.btnAction.Text = "button1";
             this.btnAction.UseVisualStyleBackColor = false;
+            this.btnAction.Click += new System.EventHandler(this.BtnAction_Click);
             // 
             // btnVoltar
             // 
@@ -89,9 +94,13 @@
             // pnlCampos
             // 
             this.pnlCampos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(175)))), ((int)(((byte)(169)))));
-            this.pnlCampos.Controls.Add(this.lbPoint);
-            this.pnlCampos.Controls.Add(this.ttbFiltro);
-            this.pnlCampos.Controls.Add(this.btnFiltrar);
+            this.pnlCampos.Controls.Add(this.cbDespesa);
+            this.pnlCampos.Controls.Add(this.rbDebito);
+            this.pnlCampos.Controls.Add(this.rbCredito);
+            this.pnlCampos.Controls.Add(this.lblAte);
+            this.pnlCampos.Controls.Add(this.lblDe);
+            this.pnlCampos.Controls.Add(this.dtpAte);
+            this.pnlCampos.Controls.Add(this.dtpDe);
             this.pnlCampos.Controls.Add(this.cbOrdenar);
             this.pnlCampos.Controls.Add(this.lbOrdenar);
             this.pnlCampos.Controls.Add(this.cbFiltrar);
@@ -99,38 +108,78 @@
             this.pnlCampos.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCampos.Location = new System.Drawing.Point(0, 0);
             this.pnlCampos.Name = "pnlCampos";
-            this.pnlCampos.Size = new System.Drawing.Size(643, 69);
+            this.pnlCampos.Size = new System.Drawing.Size(643, 80);
             this.pnlCampos.TabIndex = 1;
             // 
-            // lbPoint
+            // cbDespesa
             // 
-            this.lbPoint.AutoSize = true;
-            this.lbPoint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPoint.Location = new System.Drawing.Point(250, 33);
-            this.lbPoint.Name = "lbPoint";
-            this.lbPoint.Size = new System.Drawing.Size(12, 16);
-            this.lbPoint.TabIndex = 4;
-            this.lbPoint.Text = ":";
+            this.cbDespesa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDespesa.FormattingEnabled = true;
+            this.cbDespesa.Location = new System.Drawing.Point(351, 51);
+            this.cbDespesa.Name = "cbDespesa";
+            this.cbDespesa.Size = new System.Drawing.Size(121, 21);
+            this.cbDespesa.TabIndex = 10;
+            this.cbDespesa.SelectedIndexChanged += new System.EventHandler(this.CbDespesa_SelectedIndexChanged);
             // 
-            // ttbFiltro
+            // rbDebito
             // 
-            this.ttbFiltro.Location = new System.Drawing.Point(266, 30);
-            this.ttbFiltro.Name = "ttbFiltro";
-            this.ttbFiltro.Size = new System.Drawing.Size(100, 20);
-            this.ttbFiltro.TabIndex = 3;
+            this.rbDebito.AutoSize = true;
+            this.rbDebito.Location = new System.Drawing.Point(488, 13);
+            this.rbDebito.Name = "rbDebito";
+            this.rbDebito.Size = new System.Drawing.Size(56, 17);
+            this.rbDebito.TabIndex = 9;
+            this.rbDebito.TabStop = true;
+            this.rbDebito.Text = "Debito";
+            this.rbDebito.UseVisualStyleBackColor = true;
+            this.rbDebito.CheckedChanged += new System.EventHandler(this.RbDebito_CheckedChanged);
             // 
-            // btnFiltrar
+            // rbCredito
             // 
-            this.btnFiltrar.BackColor = System.Drawing.Color.White;
-            this.btnFiltrar.Image = ((System.Drawing.Image)(resources.GetObject("btnFiltrar.Image")));
-            this.btnFiltrar.Location = new System.Drawing.Point(556, 24);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(75, 30);
-            this.btnFiltrar.TabIndex = 2;
-            this.btnFiltrar.Text = "Filtrar";
-            this.btnFiltrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFiltrar.UseVisualStyleBackColor = false;
-            this.btnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
+            this.rbCredito.AutoSize = true;
+            this.rbCredito.Location = new System.Drawing.Point(396, 14);
+            this.rbCredito.Name = "rbCredito";
+            this.rbCredito.Size = new System.Drawing.Size(58, 17);
+            this.rbCredito.TabIndex = 8;
+            this.rbCredito.TabStop = true;
+            this.rbCredito.Text = "Credito";
+            this.rbCredito.UseVisualStyleBackColor = true;
+            this.rbCredito.CheckedChanged += new System.EventHandler(this.RbCredito_CheckedChanged);
+            // 
+            // lblAte
+            // 
+            this.lblAte.AutoSize = true;
+            this.lblAte.Location = new System.Drawing.Point(492, 34);
+            this.lblAte.Name = "lblAte";
+            this.lblAte.Size = new System.Drawing.Size(23, 13);
+            this.lblAte.TabIndex = 7;
+            this.lblAte.Text = "Até";
+            // 
+            // lblDe
+            // 
+            this.lblDe.AutoSize = true;
+            this.lblDe.Location = new System.Drawing.Point(337, 34);
+            this.lblDe.Name = "lblDe";
+            this.lblDe.Size = new System.Drawing.Size(21, 13);
+            this.lblDe.TabIndex = 6;
+            this.lblDe.Text = "De";
+            // 
+            // dtpAte
+            // 
+            this.dtpAte.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpAte.Location = new System.Drawing.Point(521, 31);
+            this.dtpAte.Name = "dtpAte";
+            this.dtpAte.Size = new System.Drawing.Size(110, 20);
+            this.dtpAte.TabIndex = 5;
+            this.dtpAte.ValueChanged += new System.EventHandler(this.DtpAte_ValueChanged);
+            // 
+            // dtpDe
+            // 
+            this.dtpDe.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDe.Location = new System.Drawing.Point(361, 31);
+            this.dtpDe.Name = "dtpDe";
+            this.dtpDe.Size = new System.Drawing.Size(114, 20);
+            this.dtpDe.TabIndex = 4;
+            this.dtpDe.ValueChanged += new System.EventHandler(this.DtpDe_ValueChanged);
             // 
             // cbOrdenar
             // 
@@ -162,18 +211,18 @@
             this.cbFiltrar.FormattingEnabled = true;
             this.cbFiltrar.Items.AddRange(new object[] {
             "Período",
-            "Débito",
-            "Crédito",
+            "Tipo de Pagamento",
             "Tipo de Despesa"});
-            this.cbFiltrar.Location = new System.Drawing.Point(138, 30);
+            this.cbFiltrar.Location = new System.Drawing.Point(225, 30);
             this.cbFiltrar.Name = "cbFiltrar";
             this.cbFiltrar.Size = new System.Drawing.Size(106, 21);
             this.cbFiltrar.TabIndex = 1;
+            this.cbFiltrar.SelectedIndexChanged += new System.EventHandler(this.CbFiltrar_SelectedIndexChanged);
             // 
             // lbFiltro
             // 
             this.lbFiltro.AutoSize = true;
-            this.lbFiltro.Location = new System.Drawing.Point(135, 14);
+            this.lbFiltro.Location = new System.Drawing.Point(222, 14);
             this.lbFiltro.Name = "lbFiltro";
             this.lbFiltro.Size = new System.Drawing.Size(54, 13);
             this.lbFiltro.TabIndex = 0;
@@ -183,9 +232,9 @@
             // 
             this.panel1.Controls.Add(this.dgvConsulta);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 69);
+            this.panel1.Location = new System.Drawing.Point(0, 80);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(643, 316);
+            this.panel1.Size = new System.Drawing.Size(643, 305);
             this.panel1.TabIndex = 2;
             // 
             // dgvConsulta
@@ -198,7 +247,7 @@
             this.dgvConsulta.Location = new System.Drawing.Point(0, 0);
             this.dgvConsulta.Name = "dgvConsulta";
             this.dgvConsulta.ReadOnly = true;
-            this.dgvConsulta.Size = new System.Drawing.Size(643, 316);
+            this.dgvConsulta.Size = new System.Drawing.Size(643, 305);
             this.dgvConsulta.TabIndex = 0;
             // 
             // FConsulta_Exclui
@@ -233,8 +282,12 @@
         private System.Windows.Forms.Label lbFiltro;
         private System.Windows.Forms.ComboBox cbOrdenar;
         private System.Windows.Forms.Label lbOrdenar;
-        private System.Windows.Forms.Label lbPoint;
-        private System.Windows.Forms.TextBox ttbFiltro;
-        private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.DateTimePicker dtpAte;
+        private System.Windows.Forms.DateTimePicker dtpDe;
+        private System.Windows.Forms.RadioButton rbDebito;
+        private System.Windows.Forms.RadioButton rbCredito;
+        private System.Windows.Forms.Label lblAte;
+        private System.Windows.Forms.Label lblDe;
+        private System.Windows.Forms.ComboBox cbDespesa;
     }
 }

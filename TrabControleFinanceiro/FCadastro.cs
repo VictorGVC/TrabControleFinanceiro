@@ -36,9 +36,9 @@ namespace TrabControleFinanceiro
 		{
             if(cbDespesa.Text != "")
             {
-                if(rbtnCrédito.Checked != false && rbtnDebito.Checked != false)
+                if(rbtnCrédito.Checked != false || rbtnDebito.Checked != false)
                 {
-                    if(rbtnSim.Checked != false && rbtnNao.Checked != false)
+                    if(rbtnSim.Checked != false || rbtnNao.Checked != false)
                     {
                         if(ttbValor.Text != "")
                         {
@@ -70,9 +70,9 @@ namespace TrabControleFinanceiro
                                 else if (rbtnCrédito.Checked)
                                     cmdGravar.Parameters.AddWithValue("@tipo", 'C');
                                 if (rbtnSim.Checked)
-                                    cmdGravar.Parameters.AddWithValue("@compensado", "Sim");
+                                    cmdGravar.Parameters.AddWithValue("@compensado", "S");
                                 else if (rbtnNao.Checked)
-                                    cmdGravar.Parameters.AddWithValue("@compensado", "Não");
+                                    cmdGravar.Parameters.AddWithValue("@compensado", "N");
                                 cmdGravar.Parameters.AddWithValue("@valor", Convert.ToDouble(ttbValor.Text));
                                 con.Open();
                                 cmdGravar.ExecuteNonQuery();
