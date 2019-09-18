@@ -115,7 +115,7 @@
             // 
             this.cbDespesa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDespesa.FormattingEnabled = true;
-            this.cbDespesa.Location = new System.Drawing.Point(351, 51);
+            this.cbDespesa.Location = new System.Drawing.Point(372, 29);
             this.cbDespesa.Name = "cbDespesa";
             this.cbDespesa.Size = new System.Drawing.Size(121, 21);
             this.cbDespesa.TabIndex = 10;
@@ -124,7 +124,7 @@
             // rbDebito
             // 
             this.rbDebito.AutoSize = true;
-            this.rbDebito.Location = new System.Drawing.Point(488, 13);
+            this.rbDebito.Location = new System.Drawing.Point(436, 30);
             this.rbDebito.Name = "rbDebito";
             this.rbDebito.Size = new System.Drawing.Size(56, 17);
             this.rbDebito.TabIndex = 9;
@@ -136,7 +136,7 @@
             // rbCredito
             // 
             this.rbCredito.AutoSize = true;
-            this.rbCredito.Location = new System.Drawing.Point(396, 14);
+            this.rbCredito.Location = new System.Drawing.Point(372, 30);
             this.rbCredito.Name = "rbCredito";
             this.rbCredito.Size = new System.Drawing.Size(58, 17);
             this.rbCredito.TabIndex = 8;
@@ -148,7 +148,7 @@
             // lblAte
             // 
             this.lblAte.AutoSize = true;
-            this.lblAte.Location = new System.Drawing.Point(492, 34);
+            this.lblAte.Location = new System.Drawing.Point(492, 33);
             this.lblAte.Name = "lblAte";
             this.lblAte.Size = new System.Drawing.Size(23, 13);
             this.lblAte.TabIndex = 7;
@@ -157,7 +157,7 @@
             // lblDe
             // 
             this.lblDe.AutoSize = true;
-            this.lblDe.Location = new System.Drawing.Point(337, 34);
+            this.lblDe.Location = new System.Drawing.Point(348, 33);
             this.lblDe.Name = "lblDe";
             this.lblDe.Size = new System.Drawing.Size(21, 13);
             this.lblDe.TabIndex = 6;
@@ -175,7 +175,7 @@
             // dtpDe
             // 
             this.dtpDe.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDe.Location = new System.Drawing.Point(361, 31);
+            this.dtpDe.Location = new System.Drawing.Point(372, 30);
             this.dtpDe.Name = "dtpDe";
             this.dtpDe.Size = new System.Drawing.Size(114, 20);
             this.dtpDe.TabIndex = 4;
@@ -213,16 +213,16 @@
             "Período",
             "Tipo de Pagamento",
             "Tipo de Despesa"});
-            this.cbFiltrar.Location = new System.Drawing.Point(225, 30);
+            this.cbFiltrar.Location = new System.Drawing.Point(205, 29);
             this.cbFiltrar.Name = "cbFiltrar";
-            this.cbFiltrar.Size = new System.Drawing.Size(106, 21);
+            this.cbFiltrar.Size = new System.Drawing.Size(137, 21);
             this.cbFiltrar.TabIndex = 1;
             this.cbFiltrar.SelectedIndexChanged += new System.EventHandler(this.CbFiltrar_SelectedIndexChanged);
             // 
             // lbFiltro
             // 
             this.lbFiltro.AutoSize = true;
-            this.lbFiltro.Location = new System.Drawing.Point(222, 14);
+            this.lbFiltro.Location = new System.Drawing.Point(202, 13);
             this.lbFiltro.Name = "lbFiltro";
             this.lbFiltro.Size = new System.Drawing.Size(54, 13);
             this.lbFiltro.TabIndex = 0;

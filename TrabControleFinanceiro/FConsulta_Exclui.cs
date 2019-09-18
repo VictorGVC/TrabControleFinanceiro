@@ -155,11 +155,6 @@ namespace TrabControleFinanceiro
 			}
         }
 
-        private void PnlCampos_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
-
         private void CbFiltrar_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbFiltrar.SelectedIndex == 0)
