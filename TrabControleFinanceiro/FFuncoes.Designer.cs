@@ -122,7 +122,7 @@
             this.btnTirarF.Name = "btnTirarF";
             this.btnTirarF.Size = new System.Drawing.Size(82, 41);
             this.btnTirarF.TabIndex = 12;
-            this.btnTirarF.Text = "Remover filtro";
+            this.btnTirarF.Text = "Limpar Filtro";
             this.btnTirarF.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTirarF.UseVisualStyleBackColor = true;
             this.btnTirarF.Click += new System.EventHandler(this.BtnTirarF_Click);

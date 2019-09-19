@@ -66,5 +66,13 @@ namespace TrabControleFinanceiro
         {
             Inicia();
         }
+
+        private void BtnCompensar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Confima compensação?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+
+            }
+        }
     }
 }
