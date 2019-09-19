@@ -28,6 +28,7 @@ namespace TrabControleFinanceiro
             cbDespesa.Visible = false;
             rbDebito.Visible = false;
             rbCredito.Visible = false;
+            cbOrdenar.SelectedIndex = 5;
             inicio();
         }
 
@@ -46,6 +47,8 @@ namespace TrabControleFinanceiro
             dtControle.Load(cmdexibe.ExecuteReader());
             con.Close();
             dgvConsulta.DataSource = dtControle;
+            
+
         }
 
         private void BtnVoltar_Click(object sender, EventArgs e)
@@ -179,6 +182,7 @@ namespace TrabControleFinanceiro
             }
             else if (cbFiltrar.SelectedIndex == 2)
             {
+                SqlConnection con = new SqlConnection(strCon);
                 dtpDe.Visible = false;
                 dtpAte.Visible = false;
                 lblDe.Visible = false;
@@ -186,63 +190,124 @@ namespace TrabControleFinanceiro
                 cbDespesa.Visible = true;
                 rbDebito.Visible = false;
                 rbCredito.Visible = false;
+                DataTable dtDataCB = new DataTable();
+                string SQL = @"SELECT * FROM tipo_despesa";
+                SqlCommand cmdexibe = new SqlCommand(SQL, con);
+                con.Open();
+                dtDataCB.Load(cmdexibe.ExecuteReader());
+                con.Close();
+                cbDespesa.DataSource = dtDataCB;
+                cbDespesa.DisplayMember = "tip_nome";
+                cbDespesa.ValueMember = "tip_nome";
             }
         }
 
         private void DtpDe_ValueChanged(object sender, EventArgs e)
         {
-
+            atualizaTabela(0);
         }
 
         private void DtpAte_ValueChanged(object sender, EventArgs e)
         {
-
+            atualizaTabela(0);
         }
 
         private void RbCredito_CheckedChanged(object sender, EventArgs e)
         {
-
+            atualizaTabela(1);
         }
 
         private void RbDebito_CheckedChanged(object sender, EventArgs e)
         {
-
+            atualizaTabela(1);
         }
 
         private void CbDespesa_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            atualizaTabela(2);
         }
 
-        private void atualizaTabela()
+        private void atualizaTabela(int caso)
         {
             string SQL;
             SqlConnection con = new SqlConnection(strCon);
             string ordenar;
-            switch(cbOrdenar.SelectedIndex)
+            ordenar = "lan_codigo";
+            switch (cbOrdenar.SelectedIndex)
             {
                 case 0:
-                    //ordenar = 
+                    ordenar = "lan_data";
                 break;
                 case 1:
-                    //ordenar =
+                    ordenar = "lan_tipo";
                 break;
                 case 2:
-                    //ordenar =
+                    ordenar = "lan_compensado";
                 break;
                 case 3:
-                    //ordenar =
+                    ordenar = "lan_valor";
+                break;
+                case 4:
+                    ordenar = "tip_nome";
+                break;
+                case 5:
+                    ordenar = "lan_codigo";
                 break;
             }
-
-            if (cbFiltrar.SelectedItem.ToString() == "")
+            SqlCommand cmdfiltra;
+            switch (caso)
             {
-                SQL = @"SELECT * FROM lancamentos ORDER BY data";
-                SqlCommand cmdPesquisar = new SqlCommand(SQL, con);
-                con.Open();
-                dtControle.Load(cmdPesquisar.ExecuteReader());
-                con.Close();
+                case 0:
+                    SQL = @"SELECT lancamentos.lan_codigo as codigo,lancamentos.lan_data as data,lancamentos.lan_tipo as 'tipo de pagamento',lancamentos.lan_compensado as compensado,lan_valor as valor,tipo_despesa.tip_nome as 'tipo de despesa'
+                    FROM lancamentos,tipo_despesa
+                    WHERE tipo_despesa.tip_codigo = lancamentos.tip_codigo AND lan_data >= @dataD AND lan_data <= @dataA 
+                    ORDER BY "+ordenar;
+                    cmdfiltra = new SqlCommand(SQL, con);
+                    cmdfiltra.Parameters.AddWithValue("@dataD", dtpDe.Value);
+                    cmdfiltra.Parameters.AddWithValue("@dataA", dtpAte.Value);
+                    dtControle.Clear();
+                    con.Open();
+                    dtControle.Load(cmdfiltra.ExecuteReader());
+                    con.Close();
+                    break;
+                case 1:
+                    SQL = @"SELECT lancamentos.lan_codigo as codigo,lancamentos.lan_data as data,lancamentos.lan_tipo as 'tipo de pagamento',lancamentos.lan_compensado as compensado,lan_valor as valor,tipo_despesa.tip_nome as 'tipo de despesa'
+                    FROM lancamentos,tipo_despesa
+                    WHERE tipo_despesa.tip_codigo = lancamentos.tip_codigo AND lan_tipo = @tipo
+                    ORDER BY " + ordenar;
+                    cmdfiltra = new SqlCommand(SQL, con);
+                    if(rbCredito.Checked)
+                        cmdfiltra.Parameters.AddWithValue("@tipo", 'C');
+                    else
+                        cmdfiltra.Parameters.AddWithValue("@tipo", 'D');
+                    dtControle.Clear();
+                    con.Open();
+                    dtControle.Load(cmdfiltra.ExecuteReader());
+                    con.Close();
+                    break;
+                case 2:
+                    SQL = @"SELECT tip_codigo FROM tipo_despesa";
+                    cmdfiltra = new SqlCommand(SQL, con);
+                    DataTable dtCod = new DataTable();
+                    con.Open();
+                    dtCod.Load(cmdfiltra.ExecuteReader());
+                    con.Close();
+                    int cod = Convert.ToInt32(dtCod.Rows[cbDespesa.SelectedIndex]["tip_codigo"].ToString());
+                    SQL = @"SELECT lancamentos.lan_codigo as codigo,lancamentos.lan_data as data,lancamentos.lan_tipo as 'tipo de pagamento',lancamentos.lan_compensado as compensado,lan_valor as valor,tipo_despesa.tip_nome as 'tipo de despesa'
+                    FROM lancamentos,tipo_despesa
+                    WHERE tipo_despesa.tip_codigo = lancamentos.tip_codigo AND lancamentos.tip_codigo = @cod
+                    ORDER BY " + ordenar;
+                    cmdfiltra = new SqlCommand(SQL, con);
+                    cmdfiltra.Parameters.AddWithValue("@cod", cod);
+                    dtControle.Clear();
+                    con.Open();
+                    dtControle.Load(cmdfiltra.ExecuteReader());
+                    con.Close();
+                    dtCod.Clear();
+                    break;
             }
+            
+            
         }
 
         private void BtnAction_Click(object sender, EventArgs e)
@@ -256,6 +321,16 @@ namespace TrabControleFinanceiro
             con.Open();
             cmdDeletar.ExecuteNonQuery();
             con.Close();
+        }
+
+        private void CbOrdenar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            atualizaTabela(cbFiltrar.SelectedIndex);
+        }
+
+        private void CbOrdenar_SelectedValueChanged(object sender, EventArgs e)
+        {
+            atualizaTabela(cbFiltrar.SelectedIndex);
         }
     }
 }

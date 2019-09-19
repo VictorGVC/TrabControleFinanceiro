@@ -190,11 +190,14 @@
             "Crédito/Débito",
             "Compensação",
             "Valor",
-            "Tipo de Despesa"});
+            "Tipo de Despesa",
+            "Codigo"});
             this.cbOrdenar.Location = new System.Drawing.Point(12, 30);
             this.cbOrdenar.Name = "cbOrdenar";
             this.cbOrdenar.Size = new System.Drawing.Size(106, 21);
             this.cbOrdenar.TabIndex = 1;
+            this.cbOrdenar.SelectedIndexChanged += new System.EventHandler(this.CbOrdenar_SelectedIndexChanged);
+            this.cbOrdenar.SelectedValueChanged += new System.EventHandler(this.CbOrdenar_SelectedValueChanged);
             // 
             // lbOrdenar
             // 
@@ -241,6 +244,8 @@
             // 
             this.dgvConsulta.AllowUserToAddRows = false;
             this.dgvConsulta.AllowUserToDeleteRows = false;
+            this.dgvConsulta.AllowUserToResizeColumns = false;
+            this.dgvConsulta.AllowUserToResizeRows = false;
             this.dgvConsulta.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConsulta.Dock = System.Windows.Forms.DockStyle.Fill;
