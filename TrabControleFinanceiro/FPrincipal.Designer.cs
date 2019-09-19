@@ -121,6 +121,7 @@
             // btnCompensar
             // 
             this.btnCompensar.BackColor = System.Drawing.Color.White;
+            this.btnCompensar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCompensar.Image = ((System.Drawing.Image)(resources.GetObject("btnCompensar.Image")));
             this.btnCompensar.Location = new System.Drawing.Point(212, 9);
             this.btnCompensar.Name = "btnCompensar";

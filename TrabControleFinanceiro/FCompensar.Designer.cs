@@ -30,19 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCompensar));
             this.pnlDatas = new System.Windows.Forms.Panel();
-            this.pnlGrid = new System.Windows.Forms.Panel();
             this.lblAte = new System.Windows.Forms.Label();
             this.lblDe = new System.Windows.Forms.Label();
             this.dtpAte = new System.Windows.Forms.DateTimePicker();
             this.dtpDe = new System.Windows.Forms.DateTimePicker();
-            this.pnlButtons = new System.Windows.Forms.Panel();
-            this.btnVoltar = new System.Windows.Forms.Button();
-            this.btnCompensar = new System.Windows.Forms.Button();
+            this.pnlGrid = new System.Windows.Forms.Panel();
             this.dgvCompensa = new System.Windows.Forms.DataGridView();
+            this.pnlButtons = new System.Windows.Forms.Panel();
+            this.btnCompensar = new System.Windows.Forms.Button();
+            this.btnVoltar = new System.Windows.Forms.Button();
             this.pnlDatas.SuspendLayout();
             this.pnlGrid.SuspendLayout();
-            this.pnlButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompensa)).BeginInit();
+            this.pnlButtons.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlDatas
@@ -57,15 +57,6 @@
             this.pnlDatas.Name = "pnlDatas";
             this.pnlDatas.Size = new System.Drawing.Size(333, 45);
             this.pnlDatas.TabIndex = 0;
-            // 
-            // pnlGrid
-            // 
-            this.pnlGrid.Controls.Add(this.dgvCompensa);
-            this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlGrid.Location = new System.Drawing.Point(0, 45);
-            this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(333, 245);
-            this.pnlGrid.TabIndex = 0;
             // 
             // lblAte
             // 
@@ -92,6 +83,7 @@
             this.dtpAte.Name = "dtpAte";
             this.dtpAte.Size = new System.Drawing.Size(120, 20);
             this.dtpAte.TabIndex = 9;
+            this.dtpAte.ValueChanged += new System.EventHandler(this.DtpAte_ValueChanged);
             // 
             // dtpDe
             // 
@@ -101,6 +93,30 @@
             this.dtpDe.Size = new System.Drawing.Size(114, 20);
             this.dtpDe.TabIndex = 8;
             this.dtpDe.Value = new System.DateTime(2019, 2, 1, 0, 0, 0, 0);
+            this.dtpDe.ValueChanged += new System.EventHandler(this.DtpDe_ValueChanged);
+            // 
+            // pnlGrid
+            // 
+            this.pnlGrid.Controls.Add(this.dgvCompensa);
+            this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlGrid.Location = new System.Drawing.Point(0, 45);
+            this.pnlGrid.Name = "pnlGrid";
+            this.pnlGrid.Size = new System.Drawing.Size(333, 245);
+            this.pnlGrid.TabIndex = 0;
+            // 
+            // dgvCompensa
+            // 
+            this.dgvCompensa.AllowUserToAddRows = false;
+            this.dgvCompensa.AllowUserToDeleteRows = false;
+            this.dgvCompensa.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
+            this.dgvCompensa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCompensa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCompensa.Location = new System.Drawing.Point(0, 0);
+            this.dgvCompensa.Name = "dgvCompensa";
+            this.dgvCompensa.ReadOnly = true;
+            this.dgvCompensa.Size = new System.Drawing.Size(333, 245);
+            this.dgvCompensa.TabIndex = 0;
+            this.dgvCompensa.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridView1_CellFormatting);
             // 
             // pnlButtons
             // 
@@ -112,6 +128,20 @@
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Size = new System.Drawing.Size(333, 37);
             this.pnlButtons.TabIndex = 1;
+            // 
+            // btnCompensar
+            // 
+            this.btnCompensar.BackColor = System.Drawing.Color.White;
+            this.btnCompensar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCompensar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnCompensar.Image = ((System.Drawing.Image)(resources.GetObject("btnCompensar.Image")));
+            this.btnCompensar.Location = new System.Drawing.Point(241, 0);
+            this.btnCompensar.Name = "btnCompensar";
+            this.btnCompensar.Size = new System.Drawing.Size(92, 37);
+            this.btnCompensar.TabIndex = 2;
+            this.btnCompensar.Text = "Compensar";
+            this.btnCompensar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCompensar.UseVisualStyleBackColor = false;
             // 
             // btnVoltar
             // 
@@ -128,33 +158,6 @@
             this.btnVoltar.UseVisualStyleBackColor = false;
             this.btnVoltar.Click += new System.EventHandler(this.BtnVoltar_Click);
             // 
-            // btnCompensar
-            // 
-            this.btnCompensar.BackColor = System.Drawing.Color.White;
-            this.btnCompensar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnCompensar.Image = ((System.Drawing.Image)(resources.GetObject("btnCompensar.Image")));
-            this.btnCompensar.Location = new System.Drawing.Point(241, 0);
-            this.btnCompensar.Name = "btnCompensar";
-            this.btnCompensar.Size = new System.Drawing.Size(92, 37);
-            this.btnCompensar.TabIndex = 2;
-            this.btnCompensar.Text = "Compensar";
-            this.btnCompensar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCompensar.UseVisualStyleBackColor = false;
-            // 
-            // dgvCompensa
-            // 
-            this.dgvCompensa.AllowUserToAddRows = false;
-            this.dgvCompensa.AllowUserToDeleteRows = false;
-            this.dgvCompensa.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
-            this.dgvCompensa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCompensa.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCompensa.Location = new System.Drawing.Point(0, 0);
-            this.dgvCompensa.Name = "dgvCompensa";
-            this.dgvCompensa.ReadOnly = true;
-            this.dgvCompensa.Size = new System.Drawing.Size(333, 245);
-            this.dgvCompensa.TabIndex = 0;
-            this.dgvCompensa.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridView1_CellFormatting);
-            // 
             // FCompensar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -169,8 +172,8 @@
             this.pnlDatas.ResumeLayout(false);
             this.pnlDatas.PerformLayout();
             this.pnlGrid.ResumeLayout(false);
-            this.pnlButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCompensa)).EndInit();
+            this.pnlButtons.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -47,7 +47,9 @@ namespace TrabControleFinanceiro
                 cbDespesa.ValueMember = "tip_nome";
                 cbDespesa.SelectedIndex = -1;
 
-                SQL = @"SELECT lancamentos.lan_codigo as codigo,lancamentos.lan_data as data,lancamentos.lan_tipo as 'tipo de pagamento',lancamentos.lan_compensado as compensado,lan_valor as valor,tipo_despesa.tip_nome as 'tipo de despesa'
+                SQL = @"SELECT lancamentos.lan_codigo as codigo,lancamentos.lan_data as data,
+                    lancamentos.lan_tipo as 'tipo de pagamento',lancamentos.lan_compensado as compensado,
+                    lan_valor as valor,tipo_despesa.tip_nome as 'tipo de despesa'
                     FROM lancamentos,tipo_despesa
                     WHERE tipo_despesa.tip_codigo = lancamentos.tip_codigo";
 
@@ -101,7 +103,9 @@ namespace TrabControleFinanceiro
             SqlCommand cmdfiltra;
             if ((rbCredito.Checked || rbDebito.Checked) && cbDespesa.SelectedIndex == -1)
             {
-                SQL = @"SELECT lancamentos.lan_codigo as codigo,lancamentos.lan_data as data,lancamentos.lan_tipo as 'tipo de pagamento',lancamentos.lan_compensado as compensado,lan_valor as valor,tipo_despesa.tip_nome as 'tipo de despesa'
+                SQL = @"SELECT lancamentos.lan_codigo as codigo,lancamentos.lan_data as data,
+                    lancamentos.lan_tipo as 'tipo de pagamento',lancamentos.lan_compensado as compensado,
+                    lan_valor as valor,tipo_despesa.tip_nome as 'tipo de despesa'
                     FROM lancamentos,tipo_despesa
                     WHERE tipo_despesa.tip_codigo = lancamentos.tip_codigo AND 
                     lan_tipo = @tipo AND 
@@ -128,7 +132,9 @@ namespace TrabControleFinanceiro
                 dtCod.Load(cmdfiltra.ExecuteReader());
                 con.Close();
                 int cod = Convert.ToInt32(dtCod.Rows[cbDespesa.SelectedIndex]["tip_codigo"].ToString());
-                SQL = @"SELECT lancamentos.lan_codigo as codigo,lancamentos.lan_data as data,lancamentos.lan_tipo as 'tipo de pagamento',lancamentos.lan_compensado as compensado,lan_valor as valor,tipo_despesa.tip_nome as 'tipo de despesa'
+                SQL = @"SELECT lancamentos.lan_codigo as codigo,lancamentos.lan_data as data,
+                    lancamentos.lan_tipo as 'tipo de pagamento',lancamentos.lan_compensado as compensado,
+                    lan_valor as valor,tipo_despesa.tip_nome as 'tipo de despesa'
                     FROM lancamentos,tipo_despesa
                     WHERE tipo_despesa.tip_codigo = lancamentos.tip_codigo AND lancamentos.tip_codigo = @cod
                     ORDER BY " + ordenar;
@@ -149,7 +155,9 @@ namespace TrabControleFinanceiro
                 dtCod.Load(cmdfiltra.ExecuteReader());
                 con.Close();
                 int cod = Convert.ToInt32(dtCod.Rows[cbDespesa.SelectedIndex]["tip_codigo"].ToString());
-                SQL = @"SELECT lancamentos.lan_codigo as codigo,lancamentos.lan_data as data,lancamentos.lan_tipo as 'tipo de pagamento',lancamentos.lan_compensado as compensado,lan_valor as valor,tipo_despesa.tip_nome as 'tipo de despesa'
+                SQL = @"SELECT lancamentos.lan_codigo as codigo,lancamentos.lan_data as data,
+                    lancamentos.lan_tipo as 'tipo de pagamento',lancamentos.lan_compensado as compensado,
+                    lan_valor as valor,tipo_despesa.tip_nome as 'tipo de despesa'
                     FROM lancamentos,tipo_despesa
                     WHERE tipo_despesa.tip_codigo = lancamentos.tip_codigo AND 
                     lan_data >= @dataD AND lan_data <= @dataA AND
@@ -171,7 +179,9 @@ namespace TrabControleFinanceiro
             }
             else
             {
-                SQL = @"SELECT lancamentos.lan_codigo as codigo,lancamentos.lan_data as data,lancamentos.lan_tipo as 'tipo de pagamento',lancamentos.lan_compensado as compensado,lan_valor as valor,tipo_despesa.tip_nome as 'tipo de despesa'
+                SQL = @"SELECT lancamentos.lan_codigo as codigo,lancamentos.lan_data as data,
+                    lancamentos.lan_tipo as 'tipo de pagamento',lancamentos.lan_compensado as compensado,
+                    lan_valor as valor,tipo_despesa.tip_nome as 'tipo de despesa'
                     FROM lancamentos,tipo_despesa
                     WHERE tipo_despesa.tip_codigo = lancamentos.tip_codigo AND lan_data >= @dataD AND lan_data <= @dataA 
                     ORDER BY " + ordenar;
@@ -275,7 +285,7 @@ namespace TrabControleFinanceiro
                 dgvConsulta.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightYellow;
             else
                 dgvConsulta.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Aquamarine;
-            dgvConsulta.Rows[e.RowIndex].DefaultCellStyle.Font = new Font("Ebrima", 10);
+            dgvConsulta.Rows[e.RowIndex].DefaultCellStyle.Font = new Font("Ebrima", 8);
         }
     }
 }
