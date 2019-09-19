@@ -55,7 +55,10 @@ namespace TrabControleFinanceiro
 
         private void BtnFechar_Click(object sender, EventArgs e)
         {
-            Close();
+            if (MessageBox.Show("Deseja finalizar programa?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                Close();
         }
+
+        
     }
 }

@@ -26,7 +26,7 @@ namespace TrabControleFinanceiro
             this.Text = action;
             btnFiltrar.Visible = true;
             btnTirarF.Visible = false;
-            inicio();
+            //inicio();
         }
 
         private void inicio()
@@ -187,15 +187,18 @@ namespace TrabControleFinanceiro
 
         private void BtnAction_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(strCon);
-            string SQL = @"DELETE FROM lancamentos
+            if(MessageBox.Show("Confima exclusão?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                SqlConnection con = new SqlConnection(strCon);
+                string SQL = @"DELETE FROM lancamentos
                             WHERE lan_codigo = @cod";
-            SqlCommand cmdDeletar = new SqlCommand(SQL, con);
-            cmdDeletar.Parameters.AddWithValue("@cod",Convert.ToInt32(dgvConsulta.CurrentRow.Cells[0].Value));
-            dgvConsulta.Rows.Remove(dgvConsulta.CurrentRow);
-            con.Open();
-            cmdDeletar.ExecuteNonQuery();
-            con.Close();
+                SqlCommand cmdDeletar = new SqlCommand(SQL, con);
+                cmdDeletar.Parameters.AddWithValue("@cod", Convert.ToInt32(dgvConsulta.CurrentRow.Cells[0].Value));
+                dgvConsulta.Rows.Remove(dgvConsulta.CurrentRow);
+                con.Open();
+                cmdDeletar.ExecuteNonQuery();
+                con.Close();
+            }
         }
 
         private void CbOrdenar_SelectedIndexChanged(object sender, EventArgs e)
