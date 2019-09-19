@@ -1,6 +1,6 @@
 ﻿namespace TrabControleFinanceiro
 {
-    partial class FConsulta_Exclui
+    partial class FFuncoes
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FConsulta_Exclui));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FFuncoes));
             this.pnlBtn = new System.Windows.Forms.Panel();
             this.btnAction = new System.Windows.Forms.Button();
             this.btnVoltar = new System.Windows.Forms.Button();
             this.pnlCampos = new System.Windows.Forms.Panel();
+            this.btnTirarF = new System.Windows.Forms.Button();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             this.cbDespesa = new System.Windows.Forms.ComboBox();
             this.rbDebito = new System.Windows.Forms.RadioButton();
             this.rbCredito = new System.Windows.Forms.RadioButton();
@@ -42,7 +44,6 @@
             this.dtpDe = new System.Windows.Forms.DateTimePicker();
             this.cbOrdenar = new System.Windows.Forms.ComboBox();
             this.lbOrdenar = new System.Windows.Forms.Label();
-            this.cbFiltrar = new System.Windows.Forms.ComboBox();
             this.lbFiltro = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvConsulta = new System.Windows.Forms.DataGridView();
@@ -94,6 +95,8 @@
             // pnlCampos
             // 
             this.pnlCampos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(175)))), ((int)(((byte)(169)))));
+            this.pnlCampos.Controls.Add(this.btnTirarF);
+            this.pnlCampos.Controls.Add(this.btnFiltrar);
             this.pnlCampos.Controls.Add(this.cbDespesa);
             this.pnlCampos.Controls.Add(this.rbDebito);
             this.pnlCampos.Controls.Add(this.rbCredito);
@@ -103,28 +106,51 @@
             this.pnlCampos.Controls.Add(this.dtpDe);
             this.pnlCampos.Controls.Add(this.cbOrdenar);
             this.pnlCampos.Controls.Add(this.lbOrdenar);
-            this.pnlCampos.Controls.Add(this.cbFiltrar);
             this.pnlCampos.Controls.Add(this.lbFiltro);
             this.pnlCampos.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlCampos.Location = new System.Drawing.Point(0, 0);
             this.pnlCampos.Name = "pnlCampos";
-            this.pnlCampos.Size = new System.Drawing.Size(643, 80);
+            this.pnlCampos.Size = new System.Drawing.Size(643, 74);
             this.pnlCampos.TabIndex = 1;
+            // 
+            // btnTirarF
+            // 
+            this.btnTirarF.Image = ((System.Drawing.Image)(resources.GetObject("btnTirarF.Image")));
+            this.btnTirarF.Location = new System.Drawing.Point(549, 15);
+            this.btnTirarF.Name = "btnTirarF";
+            this.btnTirarF.Size = new System.Drawing.Size(82, 41);
+            this.btnTirarF.TabIndex = 12;
+            this.btnTirarF.Text = "Remover filtro";
+            this.btnTirarF.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTirarF.UseVisualStyleBackColor = true;
+            this.btnTirarF.Click += new System.EventHandler(this.BtnTirarF_Click);
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Image = ((System.Drawing.Image)(resources.GetObject("btnFiltrar.Image")));
+            this.btnFiltrar.Location = new System.Drawing.Point(556, 14);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(75, 42);
+            this.btnFiltrar.TabIndex = 11;
+            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
             // 
             // cbDespesa
             // 
             this.cbDespesa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbDespesa.FormattingEnabled = true;
-            this.cbDespesa.Location = new System.Drawing.Point(372, 29);
+            this.cbDespesa.Location = new System.Drawing.Point(205, 38);
             this.cbDespesa.Name = "cbDespesa";
-            this.cbDespesa.Size = new System.Drawing.Size(121, 21);
+            this.cbDespesa.Size = new System.Drawing.Size(114, 21);
             this.cbDespesa.TabIndex = 10;
             this.cbDespesa.SelectedIndexChanged += new System.EventHandler(this.CbDespesa_SelectedIndexChanged);
             // 
             // rbDebito
             // 
             this.rbDebito.AutoSize = true;
-            this.rbDebito.Location = new System.Drawing.Point(436, 30);
+            this.rbDebito.Location = new System.Drawing.Point(418, 39);
             this.rbDebito.Name = "rbDebito";
             this.rbDebito.Size = new System.Drawing.Size(56, 17);
             this.rbDebito.TabIndex = 9;
@@ -136,7 +162,7 @@
             // rbCredito
             // 
             this.rbCredito.AutoSize = true;
-            this.rbCredito.Location = new System.Drawing.Point(372, 30);
+            this.rbCredito.Location = new System.Drawing.Point(354, 39);
             this.rbCredito.Name = "rbCredito";
             this.rbCredito.Size = new System.Drawing.Size(58, 17);
             this.rbCredito.TabIndex = 8;
@@ -148,7 +174,7 @@
             // lblAte
             // 
             this.lblAte.AutoSize = true;
-            this.lblAte.Location = new System.Drawing.Point(492, 33);
+            this.lblAte.Location = new System.Drawing.Point(325, 15);
             this.lblAte.Name = "lblAte";
             this.lblAte.Size = new System.Drawing.Size(23, 13);
             this.lblAte.TabIndex = 7;
@@ -157,7 +183,7 @@
             // lblDe
             // 
             this.lblDe.AutoSize = true;
-            this.lblDe.Location = new System.Drawing.Point(348, 33);
+            this.lblDe.Location = new System.Drawing.Point(181, 15);
             this.lblDe.Name = "lblDe";
             this.lblDe.Size = new System.Drawing.Size(21, 13);
             this.lblDe.TabIndex = 6;
@@ -166,19 +192,20 @@
             // dtpAte
             // 
             this.dtpAte.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpAte.Location = new System.Drawing.Point(521, 31);
+            this.dtpAte.Location = new System.Drawing.Point(354, 13);
             this.dtpAte.Name = "dtpAte";
-            this.dtpAte.Size = new System.Drawing.Size(110, 20);
+            this.dtpAte.Size = new System.Drawing.Size(120, 20);
             this.dtpAte.TabIndex = 5;
             this.dtpAte.ValueChanged += new System.EventHandler(this.DtpAte_ValueChanged);
             // 
             // dtpDe
             // 
             this.dtpDe.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDe.Location = new System.Drawing.Point(372, 30);
+            this.dtpDe.Location = new System.Drawing.Point(205, 12);
             this.dtpDe.Name = "dtpDe";
             this.dtpDe.Size = new System.Drawing.Size(114, 20);
             this.dtpDe.TabIndex = 4;
+            this.dtpDe.Value = new System.DateTime(2019, 2, 1, 0, 0, 0, 0);
             this.dtpDe.ValueChanged += new System.EventHandler(this.DtpDe_ValueChanged);
             // 
             // cbOrdenar
@@ -208,36 +235,22 @@
             this.lbOrdenar.TabIndex = 0;
             this.lbOrdenar.Text = "Ordenar por:";
             // 
-            // cbFiltrar
-            // 
-            this.cbFiltrar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbFiltrar.FormattingEnabled = true;
-            this.cbFiltrar.Items.AddRange(new object[] {
-            "Período",
-            "Tipo de Pagamento",
-            "Tipo de Despesa"});
-            this.cbFiltrar.Location = new System.Drawing.Point(205, 29);
-            this.cbFiltrar.Name = "cbFiltrar";
-            this.cbFiltrar.Size = new System.Drawing.Size(137, 21);
-            this.cbFiltrar.TabIndex = 1;
-            this.cbFiltrar.SelectedIndexChanged += new System.EventHandler(this.CbFiltrar_SelectedIndexChanged);
-            // 
             // lbFiltro
             // 
             this.lbFiltro.AutoSize = true;
-            this.lbFiltro.Location = new System.Drawing.Point(202, 13);
+            this.lbFiltro.Location = new System.Drawing.Point(140, 15);
             this.lbFiltro.Name = "lbFiltro";
-            this.lbFiltro.Size = new System.Drawing.Size(54, 13);
+            this.lbFiltro.Size = new System.Drawing.Size(35, 13);
             this.lbFiltro.TabIndex = 0;
-            this.lbFiltro.Text = "Filtrar Por:";
+            this.lbFiltro.Text = "Filtrar:";
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.dgvConsulta);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 80);
+            this.panel1.Location = new System.Drawing.Point(0, 74);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(643, 305);
+            this.panel1.Size = new System.Drawing.Size(643, 311);
             this.panel1.TabIndex = 2;
             // 
             // dgvConsulta
@@ -252,10 +265,10 @@
             this.dgvConsulta.Location = new System.Drawing.Point(0, 0);
             this.dgvConsulta.Name = "dgvConsulta";
             this.dgvConsulta.ReadOnly = true;
-            this.dgvConsulta.Size = new System.Drawing.Size(643, 305);
+            this.dgvConsulta.Size = new System.Drawing.Size(643, 311);
             this.dgvConsulta.TabIndex = 0;
             // 
-            // FConsulta_Exclui
+            // FFuncoes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -264,7 +277,7 @@
             this.Controls.Add(this.pnlCampos);
             this.Controls.Add(this.pnlBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FConsulta_Exclui";
+            this.Name = "FFuncoes";
             this.Text = "Consulta";
             this.pnlBtn.ResumeLayout(false);
             this.pnlCampos.ResumeLayout(false);
@@ -283,7 +296,6 @@
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.DataGridView dgvConsulta;
         private System.Windows.Forms.Button btnAction;
-        private System.Windows.Forms.ComboBox cbFiltrar;
         private System.Windows.Forms.Label lbFiltro;
         private System.Windows.Forms.ComboBox cbOrdenar;
         private System.Windows.Forms.Label lbOrdenar;
@@ -294,5 +306,7 @@
         private System.Windows.Forms.Label lblAte;
         private System.Windows.Forms.Label lblDe;
         private System.Windows.Forms.ComboBox cbDespesa;
+        private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.Button btnTirarF;
     }
 }

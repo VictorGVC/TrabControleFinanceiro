@@ -26,15 +26,19 @@ namespace TrabControleFinanceiro
         private void inicializar()
         {
             SqlConnection con = new SqlConnection(strCon);
+
+            cbDespesa.Text = "";
             dtpData.Value = DateTime.Now.Date;
             rbtnDebito.Checked = false;
 			rbtnCrédito.Checked = false;
 			rbtnSim.Checked = false;
 			rbtnNao.Checked = false;
 			ttbValor.Clear();
+
             DataTable dtDataCB = new DataTable();
             string SQL = @"SELECT * FROM tipo_despesa";
             SqlCommand cmdexibe = new SqlCommand(SQL, con);
+
             con.Open();
             dtDataCB.Load(cmdexibe.ExecuteReader());
             con.Close();
@@ -135,6 +139,7 @@ namespace TrabControleFinanceiro
                                     con.Close();
                                 }
                             }
+                            inicializar();
                         }
                         else
                         {

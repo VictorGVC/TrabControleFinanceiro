@@ -35,6 +35,7 @@
             this.pnlImage = new System.Windows.Forms.Panel();
             this.btnFechar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCompensar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,9 +44,9 @@
             this.btnConsultar.BackColor = System.Drawing.Color.White;
             this.btnConsultar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConsultar.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultar.Image")));
-            this.btnConsultar.Location = new System.Drawing.Point(192, 9);
+            this.btnConsultar.Location = new System.Drawing.Point(112, 52);
             this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(84, 37);
+            this.btnConsultar.Size = new System.Drawing.Size(94, 37);
             this.btnConsultar.TabIndex = 15;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -57,9 +58,9 @@
             this.btnExcluir.BackColor = System.Drawing.Color.White;
             this.btnExcluir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
-            this.btnExcluir.Location = new System.Drawing.Point(102, 9);
+            this.btnExcluir.Location = new System.Drawing.Point(12, 52);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(84, 37);
+            this.btnExcluir.Size = new System.Drawing.Size(94, 37);
             this.btnExcluir.TabIndex = 14;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -73,7 +74,7 @@
             this.btnCadastrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCadastrar.Image")));
             this.btnCadastrar.Location = new System.Drawing.Point(12, 9);
             this.btnCadastrar.Name = "btnCadastrar";
-            this.btnCadastrar.Size = new System.Drawing.Size(84, 37);
+            this.btnCadastrar.Size = new System.Drawing.Size(94, 37);
             this.btnCadastrar.TabIndex = 13;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -87,7 +88,7 @@
             this.pnlImage.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlImage.Location = new System.Drawing.Point(0, 0);
             this.pnlImage.Name = "pnlImage";
-            this.pnlImage.Size = new System.Drawing.Size(379, 310);
+            this.pnlImage.Size = new System.Drawing.Size(316, 273);
             this.pnlImage.TabIndex = 16;
             // 
             // btnFechar
@@ -95,9 +96,9 @@
             this.btnFechar.BackColor = System.Drawing.Color.White;
             this.btnFechar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnFechar.Image = ((System.Drawing.Image)(resources.GetObject("btnFechar.Image")));
-            this.btnFechar.Location = new System.Drawing.Point(282, 9);
+            this.btnFechar.Location = new System.Drawing.Point(212, 52);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(84, 37);
+            this.btnFechar.Size = new System.Drawing.Size(94, 37);
             this.btnFechar.TabIndex = 17;
             this.btnFechar.Text = " Fechar";
             this.btnFechar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -106,15 +107,29 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnCompensar);
             this.panel1.Controls.Add(this.btnFechar);
             this.panel1.Controls.Add(this.btnCadastrar);
             this.panel1.Controls.Add(this.btnConsultar);
             this.panel1.Controls.Add(this.btnExcluir);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 310);
+            this.panel1.Location = new System.Drawing.Point(0, 270);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(379, 54);
+            this.panel1.Size = new System.Drawing.Size(316, 94);
             this.panel1.TabIndex = 17;
+            // 
+            // btnCompensar
+            // 
+            this.btnCompensar.BackColor = System.Drawing.Color.White;
+            this.btnCompensar.Image = ((System.Drawing.Image)(resources.GetObject("btnCompensar.Image")));
+            this.btnCompensar.Location = new System.Drawing.Point(212, 9);
+            this.btnCompensar.Name = "btnCompensar";
+            this.btnCompensar.Size = new System.Drawing.Size(92, 37);
+            this.btnCompensar.TabIndex = 18;
+            this.btnCompensar.Text = "Compensar";
+            this.btnCompensar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCompensar.UseVisualStyleBackColor = false;
+            this.btnCompensar.Click += new System.EventHandler(this.BtnCompensar_Click);
             // 
             // FPrincipal
             // 
@@ -122,7 +137,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(175)))), ((int)(((byte)(169)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(379, 364);
+            this.ClientSize = new System.Drawing.Size(316, 364);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pnlImage);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -144,5 +159,6 @@
         private System.Windows.Forms.Panel pnlImage;
         private System.Windows.Forms.Button btnFechar;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnCompensar;
     }
 }

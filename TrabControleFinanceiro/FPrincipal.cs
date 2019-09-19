@@ -28,7 +28,7 @@ namespace TrabControleFinanceiro
 
         private void BtnExcluir_Click(object sender, EventArgs e)
         {
-            FConsulta_Exclui telac = new FConsulta_Exclui("Excluir");
+            FFuncoes telac = new FFuncoes("Excluir");
 
             Hide();
             telac.ShowDialog();
@@ -37,7 +37,16 @@ namespace TrabControleFinanceiro
 
         private void BtnConsultar_Click(object sender, EventArgs e)
         {
-            FConsulta_Exclui telac = new FConsulta_Exclui("Consultar");
+            FFuncoes telac = new FFuncoes("Consultar");
+
+            Hide();
+            telac.ShowDialog();
+            Show();
+        }
+
+        private void BtnCompensar_Click(object sender, EventArgs e)
+        {
+            FFuncoes telac = new FFuncoes("Compensar");
 
             Hide();
             telac.ShowDialog();
