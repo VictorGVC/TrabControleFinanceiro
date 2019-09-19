@@ -118,6 +118,29 @@
             this.dgvCompensa.TabIndex = 0;
             this.dgvCompensa.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridView1_CellFormatting);
             // 
+            // pnlGrid
+            // 
+            this.pnlGrid.Controls.Add(this.dgvCompensa);
+            this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlGrid.Location = new System.Drawing.Point(0, 45);
+            this.pnlGrid.Name = "pnlGrid";
+            this.pnlGrid.Size = new System.Drawing.Size(333, 245);
+            this.pnlGrid.TabIndex = 0;
+            // 
+            // dgvCompensa
+            // 
+            this.dgvCompensa.AllowUserToAddRows = false;
+            this.dgvCompensa.AllowUserToDeleteRows = false;
+            this.dgvCompensa.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
+            this.dgvCompensa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCompensa.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvCompensa.Location = new System.Drawing.Point(0, 0);
+            this.dgvCompensa.Name = "dgvCompensa";
+            this.dgvCompensa.ReadOnly = true;
+            this.dgvCompensa.Size = new System.Drawing.Size(333, 245);
+            this.dgvCompensa.TabIndex = 0;
+            this.dgvCompensa.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridView1_CellFormatting);
+            // 
             // pnlButtons
             // 
             this.pnlButtons.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(175)))), ((int)(((byte)(169)))));
@@ -142,6 +165,7 @@
             this.btnCompensar.Text = "Compensar";
             this.btnCompensar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCompensar.UseVisualStyleBackColor = false;
+            this.btnCompensar.Click += new System.EventHandler(this.BtnCompensar_Click);
             // 
             // btnVoltar
             // 
