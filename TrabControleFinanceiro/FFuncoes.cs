@@ -26,7 +26,7 @@ namespace TrabControleFinanceiro
             this.Text = action;
             btnFiltrar.Visible = true;
             btnTirarF.Visible = false;
-            //inicio();
+            inicio();
         }
 
         private void inicio()

@@ -71,7 +71,15 @@ namespace TrabControleFinanceiro
         {
             if (MessageBox.Show("Confima compensação?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                int cod;
+                SqlConnection con = new SqlConnection(strCon);
+                string SQL = @"";
+                for (int i = 0; i < dgvCompensa.Rows.Count; i++)
+                {
+                    if(dgvCompensa.Rows[i] == )
+                        cod = Convert.ToInt32(dgvCompensa.Rows[i].Cells[0]);
 
+                }
             }
         }
     }
