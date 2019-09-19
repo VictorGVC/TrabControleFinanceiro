@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FCompensar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FCompensar.Designer.cs">
+      <DependentUpon>FCompensar.cs</DependentUpon>
+    </Compile>
     <Compile Include="FFuncoes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FCompensar.resx">
+      <DependentUpon>FCompensar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FFuncoes.resx">
       <DependentUpon>FFuncoes.cs</DependentUpon>
     </EmbeddedResource>

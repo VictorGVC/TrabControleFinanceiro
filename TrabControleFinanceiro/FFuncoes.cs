@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace TrabControleFinanceiro
@@ -19,10 +20,10 @@ namespace TrabControleFinanceiro
             {
                 btnAction.Visible = false;
             }
+            cbOrdenar.SelectedIndex = -1;
             btnAction.Text = action;
             this.action = action;
             this.Text = action;
-            cbOrdenar.SelectedIndex = 5;
             btnFiltrar.Visible = true;
             btnTirarF.Visible = false;
             inicio();
@@ -253,7 +254,7 @@ namespace TrabControleFinanceiro
             rbCredito.Checked = false;
             rbDebito.Checked = false;
             cbOrdenar.SelectedIndex = -1;
-            cbOrdenar.SelectedIndex = 5;
+            cbOrdenar.SelectedIndex = -1;
             btnFiltrar.Visible = false;
             btnTirarF.Visible = true;
             string SQL = @"SELECT lancamentos.lan_codigo as codigo,lancamentos.lan_data as data,lancamentos.lan_tipo as 'tipo de pagamento',lancamentos.lan_compensado as compensado,lan_valor as valor,tipo_despesa.tip_nome as 'tipo de despesa'
@@ -266,6 +267,15 @@ namespace TrabControleFinanceiro
             dtControle.Load(cmdexibe.ExecuteReader());
             con.Close();
             dgvConsulta.DataSource = dtControle;
+        }
+
+        private void DgvConsulta_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.Value != null && e.RowIndex % 2 == 0)
+                dgvConsulta.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightYellow;
+            else
+                dgvConsulta.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Aquamarine;
+            dgvConsulta.Rows[e.RowIndex].DefaultCellStyle.Font = new Font("Ebrima", 10);
         }
     }
 }

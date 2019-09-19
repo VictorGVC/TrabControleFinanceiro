@@ -59,9 +59,9 @@
             this.pnlBtn.Controls.Add(this.btnAction);
             this.pnlBtn.Controls.Add(this.btnVoltar);
             this.pnlBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlBtn.Location = new System.Drawing.Point(0, 385);
+            this.pnlBtn.Location = new System.Drawing.Point(0, 379);
             this.pnlBtn.Name = "pnlBtn";
-            this.pnlBtn.Size = new System.Drawing.Size(643, 30);
+            this.pnlBtn.Size = new System.Drawing.Size(643, 36);
             this.pnlBtn.TabIndex = 0;
             // 
             // btnAction
@@ -69,11 +69,13 @@
             this.btnAction.BackColor = System.Drawing.Color.White;
             this.btnAction.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAction.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnAction.Image = ((System.Drawing.Image)(resources.GetObject("btnAction.Image")));
             this.btnAction.Location = new System.Drawing.Point(568, 0);
             this.btnAction.Name = "btnAction";
-            this.btnAction.Size = new System.Drawing.Size(75, 30);
+            this.btnAction.Size = new System.Drawing.Size(75, 36);
             this.btnAction.TabIndex = 1;
             this.btnAction.Text = "button1";
+            this.btnAction.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAction.UseVisualStyleBackColor = false;
             this.btnAction.Click += new System.EventHandler(this.BtnAction_Click);
             // 
@@ -85,7 +87,7 @@
             this.btnVoltar.Image = ((System.Drawing.Image)(resources.GetObject("btnVoltar.Image")));
             this.btnVoltar.Location = new System.Drawing.Point(0, 0);
             this.btnVoltar.Name = "btnVoltar";
-            this.btnVoltar.Size = new System.Drawing.Size(77, 30);
+            this.btnVoltar.Size = new System.Drawing.Size(77, 36);
             this.btnVoltar.TabIndex = 0;
             this.btnVoltar.Text = "Voltar";
             this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -250,7 +252,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 74);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(643, 311);
+            this.panel1.Size = new System.Drawing.Size(643, 305);
             this.panel1.TabIndex = 2;
             // 
             // dgvConsulta
@@ -265,8 +267,9 @@
             this.dgvConsulta.Location = new System.Drawing.Point(0, 0);
             this.dgvConsulta.Name = "dgvConsulta";
             this.dgvConsulta.ReadOnly = true;
-            this.dgvConsulta.Size = new System.Drawing.Size(643, 311);
+            this.dgvConsulta.Size = new System.Drawing.Size(643, 305);
             this.dgvConsulta.TabIndex = 0;
+            this.dgvConsulta.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvConsulta_CellFormatting);
             // 
             // FFuncoes
             // 

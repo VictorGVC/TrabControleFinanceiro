@@ -27,7 +27,6 @@ namespace TrabControleFinanceiro
         {
             SqlConnection con = new SqlConnection(strCon);
 
-            cbDespesa.Text = "";
             dtpData.Value = DateTime.Now.Date;
             rbtnDebito.Checked = false;
 			rbtnCrédito.Checked = false;
@@ -45,6 +44,7 @@ namespace TrabControleFinanceiro
             cbDespesa.DataSource = dtDataCB;
             cbDespesa.DisplayMember = "tip_nome";
             cbDespesa.ValueMember = "tip_nome";
+            cbDespesa.SelectedIndex = -1;
         }
 
 		private void BtnGravar_Click(object sender, EventArgs e)

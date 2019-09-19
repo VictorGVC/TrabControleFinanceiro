@@ -46,7 +46,7 @@ namespace TrabControleFinanceiro
 
         private void BtnCompensar_Click(object sender, EventArgs e)
         {
-            FFuncoes telac = new FFuncoes("Compensar");
+            FCompensar telac = new FCompensar();
 
             Hide();
             telac.ShowDialog();
