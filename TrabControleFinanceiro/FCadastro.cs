@@ -13,7 +13,8 @@ namespace TrabControleFinanceiro
 {
     public partial class FCadastro : Form
     {
-        string strCon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vicga\Desktop\Banco controle\databaseFinanceiro.mdf;Integrated Security=True;Connect Timeout=30";
+        string strCon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Aluno\Desktop\controle financeiro\Banco controle\databaseFinanceiro.mdf;Integrated Security=True;Connect Timeout=30";
+        //string strCon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vicga\Desktop\Banco controle\databaseFinanceiro.mdf;Integrated Security=True;Connect Timeout=30";
         DataTable dtControle = new DataTable();
 
 		public FCadastro()
@@ -24,12 +25,22 @@ namespace TrabControleFinanceiro
 
         private void inicializar()
         {
+            SqlConnection con = new SqlConnection(strCon);
             dtpData.Value = DateTime.Now.Date;
             rbtnDebito.Checked = false;
 			rbtnCrédito.Checked = false;
 			rbtnSim.Checked = false;
 			rbtnNao.Checked = false;
 			ttbValor.Clear();
+            DataTable dtDataCB = new DataTable();
+            string SQL = @"SELECT * FROM tipo_despesa";
+            SqlCommand cmdexibe = new SqlCommand(SQL, con);
+            con.Open();
+            dtDataCB.Load(cmdexibe.ExecuteReader());
+            con.Close();
+            cbDespesa.DataSource = dtDataCB;
+            cbDespesa.DisplayMember = "tip_nome";
+            cbDespesa.ValueMember = "tip_nome";
         }
 
 		private void BtnGravar_Click(object sender, EventArgs e)
@@ -115,9 +126,9 @@ namespace TrabControleFinanceiro
                                     else if (rbtnCrédito.Checked)
                                         cmdGravar.Parameters.AddWithValue("@tipo", 'C');
                                     if (rbtnSim.Checked)
-                                        cmdGravar.Parameters.AddWithValue("@compensado", "Sim");
+                                        cmdGravar.Parameters.AddWithValue("@compensado", "S");
                                     else if (rbtnNao.Checked)
-                                        cmdGravar.Parameters.AddWithValue("@compensado", "Não");
+                                        cmdGravar.Parameters.AddWithValue("@compensado", "N");
                                     cmdGravar.Parameters.AddWithValue("@valor", Convert.ToDouble(ttbValor.Text));
                                     con.Open();
                                     cmdGravar.ExecuteNonQuery();
