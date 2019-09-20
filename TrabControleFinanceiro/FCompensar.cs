@@ -13,15 +13,15 @@ namespace TrabControleFinanceiro
 {
     public partial class FCompensar : Form
     {
-        //string strCon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Aluno\Desktop\controle financeiro\Banco controle\databaseFinanceiro.mdf;Integrated Security=True;Connect Timeout=30";
-        string strCon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vicga\Desktop\Banco controle\databaseFinanceiro.mdf;Integrated Security=True;Connect Timeout=30";
+        string strCon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Aluno\Desktop\controle financeiro\Banco controle\databaseFinanceiro.mdf;Integrated Security=True;Connect Timeout=30";
+        //string strCon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vicga\Desktop\Banco controle\databaseFinanceiro.mdf;Integrated Security=True;Connect Timeout=30";
         DataTable dtCompensa = new DataTable();
 
         public FCompensar()
         {
             InitializeComponent();
             Inicia();
-            
+            AcceptButton = btnCompensar;
         }
 
         private void Inicia()
@@ -30,7 +30,7 @@ namespace TrabControleFinanceiro
             SqlConnection con = new SqlConnection(strCon);
             dtCompensa.Clear();
             SQL = @"SELECT lancamentos.lan_codigo as Codigo,tipo_despesa.tip_nome as 'Tipo de Despesa',
-                    lancamentos.lan_compensado as compensado,lancamentos.lan_valor as valor
+                    lancamentos.lan_compensado as Compensado,lancamentos.lan_valor as Valor,lancamentos.lan_data as Data
                     FROM lancamentos,tipo_despesa
                     WHERE lancamentos.tip_codigo = tipo_despesa.tip_codigo AND
                     lan_compensado = 'N' AND

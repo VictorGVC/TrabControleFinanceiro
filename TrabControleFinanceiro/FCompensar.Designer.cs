@@ -55,7 +55,7 @@
             this.pnlDatas.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlDatas.Location = new System.Drawing.Point(0, 0);
             this.pnlDatas.Name = "pnlDatas";
-            this.pnlDatas.Size = new System.Drawing.Size(425, 45);
+            this.pnlDatas.Size = new System.Drawing.Size(524, 45);
             this.pnlDatas.TabIndex = 0;
             // 
             // lblAte
@@ -101,7 +101,7 @@
             this.pnlGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlGrid.Location = new System.Drawing.Point(0, 45);
             this.pnlGrid.Name = "pnlGrid";
-            this.pnlGrid.Size = new System.Drawing.Size(425, 245);
+            this.pnlGrid.Size = new System.Drawing.Size(524, 245);
             this.pnlGrid.TabIndex = 0;
             // 
             // dgvCompensa
@@ -117,7 +117,7 @@
             this.dgvCompensa.Name = "dgvCompensa";
             this.dgvCompensa.ReadOnly = true;
             this.dgvCompensa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCompensa.Size = new System.Drawing.Size(425, 245);
+            this.dgvCompensa.Size = new System.Drawing.Size(524, 245);
             this.dgvCompensa.TabIndex = 0;
             this.dgvCompensa.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridView1_CellFormatting);
             // 
@@ -129,7 +129,7 @@
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlButtons.Location = new System.Drawing.Point(0, 253);
             this.pnlButtons.Name = "pnlButtons";
-            this.pnlButtons.Size = new System.Drawing.Size(425, 37);
+            this.pnlButtons.Size = new System.Drawing.Size(524, 37);
             this.pnlButtons.TabIndex = 1;
             // 
             // btnCompensar
@@ -138,7 +138,7 @@
             this.btnCompensar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCompensar.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCompensar.Image = ((System.Drawing.Image)(resources.GetObject("btnCompensar.Image")));
-            this.btnCompensar.Location = new System.Drawing.Point(333, 0);
+            this.btnCompensar.Location = new System.Drawing.Point(432, 0);
             this.btnCompensar.Name = "btnCompensar";
             this.btnCompensar.Size = new System.Drawing.Size(92, 37);
             this.btnCompensar.TabIndex = 2;
@@ -166,7 +166,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 290);
+            this.ClientSize = new System.Drawing.Size(524, 290);
             this.Controls.Add(this.pnlButtons);
             this.Controls.Add(this.pnlGrid);
             this.Controls.Add(this.pnlDatas);
