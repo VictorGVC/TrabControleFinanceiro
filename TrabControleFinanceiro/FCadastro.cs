@@ -13,8 +13,8 @@ namespace TrabControleFinanceiro
 {
     public partial class FCadastro : Form
     {
-        string strCon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Aluno\Desktop\controle financeiro\Banco controle\databaseFinanceiro.mdf;Integrated Security=True;Connect Timeout=30";
-        //string strCon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vicga\Desktop\Banco controle\databaseFinanceiro.mdf;Integrated Security=True;Connect Timeout=30";
+        //string strCon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Aluno\Desktop\controle financeiro\Banco controle\databaseFinanceiro.mdf;Integrated Security=True;Connect Timeout=30";
+        string strCon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vicga\Desktop\Banco controle\databaseFinanceiro.mdf;Integrated Security=True;Connect Timeout=30";
         DataTable dtControle = new DataTable();
 
 		public FCadastro()
@@ -165,5 +165,20 @@ namespace TrabControleFinanceiro
             Close();
 		}
 
-	}
+        private void TtbValor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!char.IsDigit(e.KeyChar) && !(e.KeyChar == ',') && !(e.KeyChar == (char)Keys.Back))
+            {
+                if (e.KeyChar == '.')
+                    e.KeyChar = ',';
+                e.Handled = true;
+            }
+            if ((e.KeyChar == ',') && (sender as TextBox).Text.IndexOf('.') > -1)
+            {
+                e.Handled = true;
+            }
+            if (ttbValor.Text.Contains(",") && (e.KeyChar == ',')|| (e.KeyChar == ',')&&ttbValor.Text == "")
+                e.Handled = true;
+        }
+    }
 }

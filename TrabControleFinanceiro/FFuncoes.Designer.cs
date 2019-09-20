@@ -261,6 +261,7 @@
             this.dgvConsulta.AllowUserToDeleteRows = false;
             this.dgvConsulta.AllowUserToResizeColumns = false;
             this.dgvConsulta.AllowUserToResizeRows = false;
+            this.dgvConsulta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvConsulta.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConsulta.Dock = System.Windows.Forms.DockStyle.Fill;

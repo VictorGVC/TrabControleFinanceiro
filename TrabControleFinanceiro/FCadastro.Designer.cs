@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCadastro));
             this.pnlDados = new System.Windows.Forms.Panel();
+            this.cbDespesa = new System.Windows.Forms.ComboBox();
             this.pnlRbtnComp = new System.Windows.Forms.Panel();
             this.rbtnNao = new System.Windows.Forms.RadioButton();
             this.rbtnSim = new System.Windows.Forms.RadioButton();
@@ -46,7 +47,6 @@
             this.pnlBotoes = new System.Windows.Forms.Panel();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
-            this.cbDespesa = new System.Windows.Forms.ComboBox();
             this.pnlDados.SuspendLayout();
             this.pnlRbtnComp.SuspendLayout();
             this.pnlRbtnTipo.SuspendLayout();
@@ -69,6 +69,14 @@
             this.pnlDados.Name = "pnlDados";
             this.pnlDados.Size = new System.Drawing.Size(311, 128);
             this.pnlDados.TabIndex = 0;
+            // 
+            // cbDespesa
+            // 
+            this.cbDespesa.FormattingEnabled = true;
+            this.cbDespesa.Location = new System.Drawing.Point(15, 24);
+            this.cbDespesa.Name = "cbDespesa";
+            this.cbDespesa.Size = new System.Drawing.Size(162, 21);
+            this.cbDespesa.TabIndex = 7;
             // 
             // pnlRbtnComp
             // 
@@ -168,6 +176,7 @@
             this.ttbValor.Name = "ttbValor";
             this.ttbValor.Size = new System.Drawing.Size(97, 20);
             this.ttbValor.TabIndex = 1;
+            this.ttbValor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TtbValor_KeyPress);
             // 
             // lData
             // 
@@ -237,14 +246,6 @@
             this.btnGravar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGravar.UseVisualStyleBackColor = false;
             this.btnGravar.Click += new System.EventHandler(this.BtnGravar_Click);
-            // 
-            // cbDespesa
-            // 
-            this.cbDespesa.FormattingEnabled = true;
-            this.cbDespesa.Location = new System.Drawing.Point(15, 24);
-            this.cbDespesa.Name = "cbDespesa";
-            this.cbDespesa.Size = new System.Drawing.Size(162, 21);
-            this.cbDespesa.TabIndex = 7;
             // 
             // FCadastro
             // 

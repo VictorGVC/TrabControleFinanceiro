@@ -13,14 +13,15 @@ namespace TrabControleFinanceiro
 {
     public partial class FCompensar : Form
     {
-        string strCon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Aluno\Desktop\controle financeiro\Banco controle\databaseFinanceiro.mdf;Integrated Security=True;Connect Timeout=30";
-        //string strCon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vicga\Desktop\Banco controle\databaseFinanceiro.mdf;Integrated Security=True;Connect Timeout=30";
+        //string strCon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Aluno\Desktop\controle financeiro\Banco controle\databaseFinanceiro.mdf;Integrated Security=True;Connect Timeout=30";
+        string strCon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vicga\Desktop\Banco controle\databaseFinanceiro.mdf;Integrated Security=True;Connect Timeout=30";
         DataTable dtCompensa = new DataTable();
 
         public FCompensar()
         {
             InitializeComponent();
             Inicia();
+            
         }
 
         private void Inicia()
@@ -41,6 +42,8 @@ namespace TrabControleFinanceiro
             dtCompensa.Load(cmdExibe.ExecuteReader());
             con.Close();
             dgvCompensa.DataSource = dtCompensa;
+            if (dgvCompensa.Rows.Count == 0)
+                btnCompensar.Enabled = false;
         }
 
         private void DataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -50,6 +53,7 @@ namespace TrabControleFinanceiro
             else
                 dgvCompensa.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Aquamarine;
             dgvCompensa.Rows[e.RowIndex].DefaultCellStyle.Font = new Font("Ebrima", 8);
+            
         }
 
         private void BtnVoltar_Click(object sender, EventArgs e)
@@ -71,16 +75,21 @@ namespace TrabControleFinanceiro
         {
             if (MessageBox.Show("Confima compensação?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                int cod;
                 SqlConnection con = new SqlConnection(strCon);
-                string SQL = @"";
-                for (int i = 0; i < dgvCompensa.Rows.Count; i++)
+                foreach(DataGridViewRow r in dgvCompensa.SelectedRows)
                 {
-                    if(dgvCompensa.Rows[i] == )
-                        cod = Convert.ToInt32(dgvCompensa.Rows[i].Cells[0]);
-
+                    string SQL = @"UPDATE lancamentos
+                                SET lan_compensado = 'S'
+                                WHERE lan_codigo = @cod1";
+                    SqlCommand sqlatualiza = new SqlCommand(SQL, con);
+                    sqlatualiza.Parameters.AddWithValue("@cod1", Convert.ToInt32(r.Cells[0].Value));
+                    con.Open();
+                    sqlatualiza.ExecuteNonQuery();
+                    con.Close();
                 }
+                Inicia();
             }
         }
+
     }
 }

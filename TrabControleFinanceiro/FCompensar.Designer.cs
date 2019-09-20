@@ -108,12 +108,15 @@
             // 
             this.dgvCompensa.AllowUserToAddRows = false;
             this.dgvCompensa.AllowUserToDeleteRows = false;
+            this.dgvCompensa.AllowUserToResizeColumns = false;
+            this.dgvCompensa.AllowUserToResizeRows = false;
             this.dgvCompensa.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(242)))), ((int)(((byte)(241)))));
             this.dgvCompensa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCompensa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCompensa.Location = new System.Drawing.Point(0, 0);
             this.dgvCompensa.Name = "dgvCompensa";
             this.dgvCompensa.ReadOnly = true;
+            this.dgvCompensa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCompensa.Size = new System.Drawing.Size(425, 245);
             this.dgvCompensa.TabIndex = 0;
             this.dgvCompensa.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DataGridView1_CellFormatting);

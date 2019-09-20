@@ -9,8 +9,8 @@ namespace TrabControleFinanceiro
     public partial class FFuncoes : Form
     {
         private string action;
-        string strCon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Aluno\Desktop\controle financeiro\Banco controle\databaseFinanceiro.mdf;Integrated Security=True;Connect Timeout=30";
-        //string strCon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vicga\Desktop\Banco controle\databaseFinanceiro.mdf;Integrated Security=True;Connect Timeout=30";
+        //string strCon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Aluno\Desktop\controle financeiro\Banco controle\databaseFinanceiro.mdf;Integrated Security=True;Connect Timeout=30";
+        string strCon = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vicga\Desktop\Banco controle\databaseFinanceiro.mdf;Integrated Security=True;Connect Timeout=30";
         DataTable dtControle = new DataTable();
 
         public FFuncoes(string action)
@@ -34,37 +34,33 @@ namespace TrabControleFinanceiro
 			string SQL;
 			SqlConnection con = new SqlConnection(strCon);
 
-            try
-            {
-                DataTable dtDataCB = new DataTable();
-                SQL = @"SELECT * FROM tipo_despesa";
-                SqlCommand cmdexibe = new SqlCommand(SQL, con);
-                con.Open();
-                dtDataCB.Load(cmdexibe.ExecuteReader());
-                con.Close();
-                cbDespesa.DataSource = dtDataCB;
-                cbDespesa.DisplayMember = "tip_nome";
-                cbDespesa.ValueMember = "tip_nome";
-                cbDespesa.SelectedIndex = -1;
 
-                SQL = @"SELECT lancamentos.lan_codigo as codigo,lancamentos.lan_data as data,
-                    lancamentos.lan_tipo as 'tipo de pagamento',lancamentos.lan_compensado as compensado,
-                    lan_valor as valor,tipo_despesa.tip_nome as 'tipo de despesa'
-                    FROM lancamentos,tipo_despesa
-                    WHERE tipo_despesa.tip_codigo = lancamentos.tip_codigo";
+            DataTable dtDataCB = new DataTable();
+            SQL = @"SELECT * FROM tipo_despesa";
+            SqlCommand cmdexibe = new SqlCommand(SQL, con);
+            con.Open();
+            dtDataCB.Load(cmdexibe.ExecuteReader());
+            con.Close();
+            cbDespesa.DataSource = dtDataCB;
+            cbDespesa.DisplayMember = "tip_nome";
+            cbDespesa.ValueMember = "tip_nome";
+            cbDespesa.SelectedIndex = -1;
 
-                cmdexibe = new SqlCommand(SQL, con);
+            SQL = @"SELECT lancamentos.lan_codigo as codigo,lancamentos.lan_data as data,
+                lancamentos.lan_tipo as 'tipo de pagamento',lancamentos.lan_compensado as compensado,
+                lan_valor as valor,tipo_despesa.tip_nome as 'tipo de despesa'
+                FROM lancamentos,tipo_despesa
+                WHERE tipo_despesa.tip_codigo = lancamentos.tip_codigo";
 
-                con.Open();
-                dtControle.Load(cmdexibe.ExecuteReader());
-                con.Close();
-                dgvConsulta.DataSource = dtControle;
-            }
-            catch(Exception)
-            {
-                
-            }
+            cmdexibe = new SqlCommand(SQL, con);
 
+            con.Open();
+            dtControle.Load(cmdexibe.ExecuteReader());
+            con.Close();
+            dgvConsulta.DataSource = dtControle;
+
+            if (dgvConsulta.Rows.Count == 0)
+                btnAction.Enabled = false;
         }
 
         private void BtnVoltar_Click(object sender, EventArgs e)
